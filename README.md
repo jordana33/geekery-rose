@@ -1,2 +1,2 @@
 # geekery-rose
-Blog for creative endevors
+Blog for creative endeavors
