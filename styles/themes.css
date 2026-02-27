@@ -1,0 +1,192 @@
+/* themes.css */
+/* Color scheme: Amethyst Mint Harmony (scheme 36) */
+/* Palette: #2a3f38 (forest) · #562f54 (plum) · #8df588 (electric mint) · #57585d (charcoal) · #f650bd (magenta) */
+
+/* ============================================================
+   ACCESSIBILITY NOTES — READ BEFORE USING COLORS
+   ============================================================
+
+   CONTRAST RESULTS (WCAG 2.1):
+   ✅ Forest (#2a3f38) on white:        11.25:1  AAA — safe for all text sizes
+   ✅ Plum (#562f54) on white:          10.88:1  AAA — safe for all text sizes
+   ✅ Charcoal (#57585d) on white:       7.10:1  AAA — safe for all text sizes
+   ✅ Mint (#8df588) on forest:          8.33:1  AAA — safe, but ONLY as bg with dark text
+   ✅ Mint (#8df588) on plum:            8.06:1  AAA — safe, but ONLY as bg with dark text
+   ⚠️  Magenta (#f650bd) on white:       3.09:1  AA Large only — large text/buttons/badges only
+   ⚠️  Magenta (#f650bd) on dark bg:     4.60:1  AA — OK for large UI elements on dark theme
+   ❌  Mint (#8df588) on white:          1.35:1  FAIL — never use mint as text or on light surfaces
+
+   COLOR BLINDNESS WARNINGS:
+   ❌  Mint + Magenta are indistinguishable under deuteranopia & protanopia (affects ~8% of men)
+       Both collapse to similar taupes. NEVER use mint vs. magenta to convey different meanings
+       (e.g. don't color-code craft types using only these two colors — add icons or labels too)
+   ✅  Forest, plum, and charcoal remain distinct under all simulated color blindness types
+
+   SAFE USAGE RULES:
+   • Mint: backgrounds/fills ONLY — always pair with forest (#2a3f38) text on top
+   • Magenta: large UI elements only (buttons, big badges) — not body text, not small labels
+   • Forest + Plum: safe for any text size on light backgrounds
+   • Always supplement color-coded meaning with shape, icon, or text label
+   ============================================================ */
+
+
+/* ============================================================
+   DEFAULT (LIGHT) THEME
+   ============================================================ */
+:root {
+  /* Page backgrounds */
+  --color-background: #f4f7f5;       /* Pale mint-tinted white — main page background */
+  --color-surface: #ffffff;          /* Pure white — cards, post previews, raised surfaces */
+
+  /* Text — all AAA on white and --color-background */
+  --color-text-primary: #2a3f38;     /* Forest — headings, body text. 11.25:1 on white ✅ AAA */
+  --color-text-secondary: #57585d;   /* Charcoal — metadata, captions. 7.10:1 on white ✅ AAA */
+
+  /* Accents */
+  --color-accent: #562f54;
+  /* Plum — links, buttons, active states. 10.88:1 on white ✅ AAA
+     ✅ Safe for text links and small UI elements
+     ✅ Use white (#ffffff) text on plum backgrounds (10.88:1) */
+
+  --color-accent-hover: #7a4578;
+  /* Lighter plum for hover states — check contrast if used as text (should stay above 4.5:1) */
+
+  --color-accent-secondary: #f650bd;
+  /* Magenta — decorative accents, large badges, CTA buttons only
+     ⚠️  3.09:1 on white — AA Large only. Do NOT use for body text or small labels
+     ⚠️  Indistinguishable from mint under red-green color blindness
+     ✅  Always pair with a label or icon when used to convey meaning */
+
+  --color-accent-secondary-hover: #d93da6;
+  /* Deepened magenta for hover — same restrictions as above */
+
+  --color-highlight: #8df588;
+  /* Electric mint — tag backgrounds, selected states, callout backgrounds ONLY
+     ❌  NEVER use as text color (1.35:1 on white — fails completely)
+     ✅  Always use --color-text-primary (#2a3f38) as text on top of mint (8.33:1) ✅ AAA
+     ⚠️  Do not use mint alone to distinguish from magenta — add icon or text label */
+
+  --color-highlight-text: #2a3f38;
+  /* The ONLY text color safe to use on mint backgrounds (8.33:1) ✅ AAA */
+
+  --color-border: #d0dbd7;           /* Muted green-gray — dividers, input borders */
+
+  /* Typography */
+  --font-family-base: system-ui, -apple-system, sans-serif;
+  --font-family-heading: Georgia, serif;
+  --font-size-base: 1rem;
+  --font-size-small: 0.875rem;
+  --font-size-large: 1.25rem;
+  --line-height-base: 1.6;
+  --line-height-tight: 1.2;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  /* Layout */
+  --max-width-content: 65ch;
+  --max-width-wide: 1200px;
+  --border-radius: 8px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(42, 63, 56, 0.10);
+  --shadow-md: 0 4px 6px rgba(42, 63, 56, 0.10);
+  --shadow-lg: 0 10px 20px rgba(42, 63, 56, 0.14);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+}
+
+
+/* ============================================================
+   DARK THEME
+   The dark theme has better contrast properties overall.
+   Mint becomes the primary accent and is fully safe here.
+   ============================================================ */
+[data-theme="dark"] {
+  --color-background: #1e2e29;       /* Deep forest — main page background */
+  --color-surface: #2a3f38;          /* Forest — cards, raised surfaces */
+
+  /* Text */
+  --color-text-primary: #e8f5e2;     /* Pale mint-white — 12.58:1 on dark bg ✅ AAA */
+  --color-text-secondary: #a0a8a4;   /* Muted sage — 5.84:1 on dark bg ✅ AA */
+
+  /* Accents */
+  --color-accent: #8df588;
+  /* Mint — links, buttons, active states in dark theme
+     ✅ 10.52:1 on dark bg ✅ AAA — fully safe for text and UI elements here
+     ✅ This is the one context where mint is safe as a foreground color */
+
+  --color-accent-hover: #a8f9a4;     /* Lighter mint for hover — still safe on dark surfaces */
+
+  --color-accent-secondary: #f650bd;
+  /* Magenta — 4.60:1 on dark bg ✅ AA — better here than light theme
+     ✅ Safe for large buttons and badges on dark background
+     ⚠️  Still indistinguishable from mint under red-green color blindness
+     ✅  Always pair with label or icon when used alongside mint to convey meaning */
+
+  --color-accent-secondary-hover: #f975cc;
+
+  --color-highlight: #562f54;        /* Plum — tag/badge backgrounds on dark */
+  --color-highlight-text: #f0e8f0;   /* Pale lavender — text on plum backgrounds */
+
+  --color-border: #3a5248;           /* Dark forest — dividers, borders */
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.40);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.50);
+}
+
+
+/* ============================================================
+   PLUM THEME (optional variant)
+   ============================================================ */
+[data-theme="plum"] {
+  --color-background: #3d2240;
+  --color-surface: #562f54;
+
+  --color-text-primary: #f0e8f0;     /* Pale lavender-white — safe on plum ✅ */
+  --color-text-secondary: #c4a8c2;   /* Muted mauve — check contrast if text gets smaller */
+
+  --color-accent: #8df588;
+  /* Mint — safe as accent here since it's on dark plum backgrounds
+     ✅ Mint on plum: 8.06:1 ✅ AAA */
+
+  --color-accent-hover: #a8f9a4;
+
+  --color-accent-secondary: #f650bd;
+  /* ⚠️  Same color blindness caveat applies — don't rely on mint vs. magenta alone */
+
+  --color-accent-secondary-hover: #f975cc;
+
+  --color-highlight: #2a3f38;        /* Forest — tag backgrounds on plum */
+  --color-highlight-text: #8df588;   /* Mint text on forest: 8.33:1 ✅ AAA */
+
+  --color-border: #6e4470;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.30);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.40);
+}
+
+
+/* ============================================================
+   CRAFT TYPE BADGE COLORS
+   ⚠️  All badges use dark backgrounds + light text to avoid
+       the mint-on-white failure and magenta-on-white issues.
+   ✅  Each badge style also relies on a text LABEL (the craft
+       name) so color alone never carries the meaning.
+   ============================================================ */
+:root {
+  --badge-bg-default:    #562f54;  --badge-text-default:    #f0e8f0;  /* plum bg, light text ✅ */
+  --badge-bg-crochet:    #2a3f38;  --badge-text-crochet:    #8df588;  /* forest bg, mint text ✅ 8.33:1 */
+  --badge-bg-knitting:   #562f54;  --badge-text-knitting:   #f0e8f0;  /* plum bg, light text ✅ */
+  --badge-bg-embroidery: #3d2240;  --badge-text-embroidery: #f0e8f0;  /* deep plum, light text ✅ */
+  --badge-bg-sewing:     #2a3f38;  --badge-text-sewing:     #e8f5e2;  /* forest bg, pale text ✅ */
+  --badge-bg-beading:    #57585d;  --badge-text-beading:    #ffffff;  /* charcoal bg, white text ✅ */
+}
