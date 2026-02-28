@@ -35,7 +35,7 @@
    ============================================================ */
 :root {
   /* Page backgrounds */
-  --color-background: #f4f7f5;       /* Pale mint-tinted white — main page background */
+  --color-background: #f7f5fb;       /* Pale mint-tinted white — main page background */
   --color-surface: #ffffff;          /* Pure white — cards, post previews, raised surfaces */
 
   /* Text — all AAA on white and --color-background */
