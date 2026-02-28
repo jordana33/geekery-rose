@@ -1,0 +1,1154 @@
+/* ==========================================================================
+   Geekery Rose — base.css
+   Reset, typography, and base styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Google Fonts Import
+   Headings: Fraunces (optical serif — characterful, warmly editorial)
+   Body: Literata (designed for reading on screens — high legibility)
+   UI: DM Sans (clean, friendly, modern)
+   -------------------------------------------------------------------------- */
+
+
+/* ==========================================================================
+   1. MODERN CSS RESET
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Prevent font size inflation on mobile */
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+
+  /* Smooth scrolling, respecting reduced motion */
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  min-block-size: 100vh;
+  line-height: var(--line-height-base);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  font-optical-sizing: auto;
+
+  /* Subtle warm paper texture via gradient */
+  background-image:
+    radial-gradient(ellipse at 20% 0%, var(--color-texture-warm) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 100%, var(--color-texture-cool) 0%, transparent 60%);
+  background-attachment: fixed;
+}
+
+/* Remove list styles when list has a role */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-inline-size: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Prevent long strings from overflowing */
+p,
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* Isolate stacking context for components that need it */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+
+/* ==========================================================================
+   2. CUSTOM PROPERTIES (DESIGN TOKENS)
+   Full theme system — override in themes.css
+   ========================================================================== */
+
+:root {
+  /* --- Color palette --- */
+  --color-background:       #f7f5fb;
+  --color-surface:          #f3efe8;
+  --color-surface-raised:   #ffffff;
+  --color-border:           #e2d9cc;
+  --color-border-subtle:    #ede8e0;
+
+  --color-text-primary:     #2a2118;
+  --color-text-secondary:   #6b5c4a;
+  --color-text-muted:       #9c8d7e;
+  --color-text-inverse:     #f7f5fb;
+
+  --color-accent:           #c4622d;   /* terracotta */
+  --color-accent-hover:     #a84f22;
+  --color-accent-subtle:    #f5e6dc;
+
+  --color-tag-bg:           #e8e0d4;
+  --color-tag-text:         #5c4a35;
+
+  /* Background texture tints (subtle, fixed) */
+  --color-texture-warm:     rgba(196, 98, 45, 0.04);
+  --color-texture-cool:     rgba(100, 130, 100, 0.03);
+
+  /* --- Typography --- */
+  --font-family-heading:    'Lora', Georgia, serif;
+  --font-family-body:       'Literata', Georgia, serif;
+  --font-family-ui:         'DM Sans', system-ui, sans-serif;
+  --font-family-mono:       'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+
+  /* Fluid type scale — clamp(min, preferred, max) */
+  --font-size-xs:           clamp(0.75rem,  0.7rem + 0.25vw,  0.8125rem);
+  --font-size-sm:           clamp(0.875rem, 0.825rem + 0.25vw, 0.9375rem);
+  --font-size-base:         clamp(1rem,     0.95rem + 0.25vw,  1.0625rem);
+  --font-size-md:           clamp(1.125rem, 1.05rem + 0.375vw, 1.25rem);
+  --font-size-lg:           clamp(1.25rem,  1.1rem + 0.75vw,   1.5rem);
+  --font-size-xl:           clamp(1.5rem,   1.2rem + 1.5vw,    2rem);
+  --font-size-2xl:          clamp(1.875rem, 1.4rem + 2.375vw,  2.75rem);
+  --font-size-3xl:          clamp(2.25rem,  1.5rem + 3.75vw,   3.75rem);
+
+  --font-weight-light:      300;
+  --font-weight-regular:    400;
+  --font-weight-medium:     500;
+  --font-weight-semibold:   600;
+  --font-weight-bold:       700;
+
+  --line-height-tight:      1.15;
+  --line-height-snug:       1.35;
+  --line-height-base:       1.7;
+  --line-height-relaxed:    1.85;
+
+  --letter-spacing-tight:   -0.03em;
+  --letter-spacing-normal:  0;
+  --letter-spacing-wide:    0.04em;
+  --letter-spacing-wider:   0.08em;
+  --letter-spacing-caps:    0.1em;
+
+  /* --- Spacing scale (8px base) --- */
+  --space-1:   0.25rem;   /*  4px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+  --space-32:  8rem;      /* 128px */
+
+  /* Semantic spacing aliases */
+  --space-xs:  var(--space-2);
+  --space-sm:  var(--space-3);
+  --space-md:  var(--space-4);
+  --space-lg:  var(--space-8);
+  --space-xl:  var(--space-16);
+
+  /* --- Layout --- */
+  --max-width-prose:    66ch;
+  --max-width-content:  800px;
+  --max-width-wide:     1100px;
+  --max-width-full:     1400px;
+
+  --content-padding-inline: clamp(var(--space-4), 5vw, var(--space-12));
+
+  /* --- Borders --- */
+  --border-radius-sm:   4px;
+  --border-radius:      8px;
+  --border-radius-md:   12px;
+  --border-radius-lg:   20px;
+  --border-radius-full: 9999px;
+
+  --border-width:       1px;
+
+  /* --- Shadows --- */
+  --shadow-xs:  0 1px 2px rgba(42, 33, 24, 0.06);
+  --shadow-sm:  0 1px 4px rgba(42, 33, 24, 0.08), 0 1px 2px rgba(42, 33, 24, 0.04);
+  --shadow-md:  0 4px 12px rgba(42, 33, 24, 0.10), 0 1px 3px rgba(42, 33, 24, 0.06);
+  --shadow-lg:  0 8px 24px rgba(42, 33, 24, 0.12), 0 2px 6px rgba(42, 33, 24, 0.06);
+  --shadow-xl:  0 16px 40px rgba(42, 33, 24, 0.14), 0 4px 12px rgba(42, 33, 24, 0.08);
+
+  /* --- Transitions --- */
+  --transition-fast:    120ms ease;
+  --transition-base:    220ms ease;
+  --transition-slow:    380ms ease;
+  --transition-spring:  400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* --- Z-index scale --- */
+  --z-below:    -1;
+  --z-base:      0;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+}
+
+
+/* ==========================================================================
+   3. TYPOGRAPHY
+   ========================================================================== */
+
+/* --- Headings --- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+  line-height: var(--line-height-snug);
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+}
+
+h4 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+}
+
+h5 {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* --- Body text --- */
+
+p {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text-primary);
+  max-inline-size: var(--max-width-prose);
+  text-wrap: pretty;
+}
+
+/* Larger intro paragraph — apply .lead to first <p> */
+.lead {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-light);
+  font-style: italic;
+}
+
+/* --- Links --- */
+
+a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+  transition:
+    color var(--transition-fast),
+    text-decoration-color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+  text-decoration-color: var(--color-accent-hover);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+}
+
+/* Quiet link (nav, breadcrumbs) */
+.link-quiet {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.link-quiet:hover {
+  color: var(--color-text-primary);
+}
+
+/* --- Inline elements --- */
+
+strong, b {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+em, i {
+  font-style: italic;
+}
+
+small {
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-ui);
+  color: var(--color-text-muted);
+}
+
+mark {
+  background-color: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  color: inherit;
+  padding-inline: 0.15em;
+  border-radius: 2px;
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+/* --- Code --- */
+
+code {
+  font-family: var(--font-family-mono);
+  font-size: 0.875em;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  padding: 0.1em 0.35em;
+  color: var(--color-accent);
+}
+
+pre {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  background-color: var(--color-text-primary);
+  color: var(--color-text-inverse);
+  border-radius: var(--border-radius);
+  padding: var(--space-6);
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* --- Blockquote --- */
+
+blockquote {
+  border-inline-start: 3px solid var(--color-accent);
+  margin-inline: 0;
+  padding-inline-start: var(--space-6);
+  padding-block: var(--space-2);
+}
+
+blockquote p {
+  font-size: var(--font-size-md);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-light);
+}
+
+blockquote cite {
+  display: block;
+  margin-block-start: var(--space-2);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-ui);
+  font-style: normal;
+  color: var(--color-text-muted);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+blockquote cite::before {
+  content: "— ";
+}
+
+/* --- Lists --- */
+
+ul, ol {
+  padding-inline-start: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  line-height: var(--line-height-base);
+  max-inline-size: var(--max-width-prose);
+}
+
+li::marker {
+  color: var(--color-accent);
+}
+
+/* --- HR / Dividers --- */
+
+hr {
+  border: none;
+  block-size: 1px;
+  background-color: var(--color-border);
+  margin-block: var(--space-12);
+}
+
+/* Decorative divider with a centered flourish */
+hr.flourish {
+  background: none;
+  text-align: center;
+  overflow: visible;
+  block-size: auto;
+  margin-block: var(--space-16);
+}
+
+hr.flourish::after {
+  content: "✦  ✦  ✦";
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--space-4);
+  color: var(--color-text-muted);
+}
+
+/* --- Selection --- */
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-accent) 20%, transparent);
+  color: var(--color-text-primary);
+}
+
+
+/* ==========================================================================
+   4. LAYOUT PRIMITIVES
+   ========================================================================== */
+
+/* --- Page wrapper --- */
+
+.site-wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-block-size: 100vh;
+}
+
+/* --- Content container --- */
+
+.container {
+  inline-size: 100%;
+  max-inline-size: var(--max-width-wide);
+  margin-inline: auto;
+  padding-inline: var(--content-padding-inline);
+}
+
+.container--prose {
+  max-inline-size: var(--max-width-content);
+}
+
+.container--wide {
+  max-inline-size: var(--max-width-full);
+}
+
+/* --- Stack (vertical spacing) --- */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.stack > * + * { margin-block-start: var(--space-6); }
+.stack--xs > * + * { margin-block-start: var(--space-2); }
+.stack--sm > * + * { margin-block-start: var(--space-4); }
+.stack--lg > * + * { margin-block-start: var(--space-12); }
+.stack--xl > * + * { margin-block-start: var(--space-20); }
+
+/* --- Cluster (horizontal wrapping group) --- */
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+/* --- Grid layouts --- */
+
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: var(--space-8);
+}
+
+.grid-auto--sm {
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+  gap: var(--space-6);
+}
+
+/* --- Section spacing --- */
+
+.section {
+  padding-block: var(--space-16);
+}
+
+.section--lg {
+  padding-block: var(--space-24);
+}
+
+
+/* ==========================================================================
+   5. SITE HEADER & NAVIGATION
+   ========================================================================== */
+
+.site-header {
+  padding-block: var(--space-6);
+  border-block-end: 1px solid var(--color-border-subtle);
+  background-color: color-mix(in srgb, var(--color-background) 92%, transparent);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  inset-block-start: 0;
+  z-index: var(--z-sticky);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+/* Site logo / wordmark */
+.site-logo {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  font-style: italic;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: 1;
+  transition: color var(--transition-fast);
+}
+
+.site-logo:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.site-logo em {
+  color: var(--color-accent);
+  font-style: inherit;
+}
+
+/* Main navigation */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.site-nav__link {
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--border-radius-sm);
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.site-nav__link:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+}
+
+.site-nav__link[aria-current="page"] {
+  color: var(--color-accent);
+  background-color: var(--color-accent-subtle);
+}
+
+/* RSS link in nav */
+.nav-rss {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-text-muted);
+  padding: var(--space-2);
+  border-radius: var(--border-radius-sm);
+  transition: color var(--transition-fast);
+}
+
+.nav-rss:hover {
+  color: var(--color-accent);
+}
+
+.nav-rss svg {
+  inline-size: 1em;
+  block-size: 1em;
+}
+
+
+/* ==========================================================================
+   6. SITE FOOTER
+   ========================================================================== */
+
+.site-footer {
+  padding-block: var(--space-12);
+  margin-block-start: var(--space-20);
+  border-block-start: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.site-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.site-footer p {
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  max-inline-size: none;
+}
+
+.site-footer a {
+  color: var(--color-text-muted);
+  text-decoration-color: transparent;
+  transition:
+    color var(--transition-fast),
+    text-decoration-color var(--transition-fast);
+}
+
+.site-footer a:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
+
+/* ==========================================================================
+   7. BLOG POST CONTENT STYLES
+   ========================================================================== */
+
+/* The main article wrapper */
+.blog-post {
+  max-inline-size: var(--max-width-content);
+  margin-inline: auto;
+}
+
+/* Post header */
+.post-header {
+  margin-block-end: var(--space-12);
+  padding-block-end: var(--space-10);
+  border-block-end: 1px solid var(--color-border-subtle);
+}
+
+.post-header h1 {
+  margin-block-end: var(--space-4);
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.post-meta time {
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* Post body — space out the prose content */
+.post-body > * + * {
+  margin-block-start: var(--space-6);
+}
+
+.post-body h2 {
+  margin-block-start: var(--space-12);
+  margin-block-end: var(--space-4);
+}
+
+.post-body h3 {
+  margin-block-start: var(--space-10);
+  margin-block-end: var(--space-3);
+}
+
+.post-body h4 {
+  margin-block-start: var(--space-8);
+  margin-block-end: var(--space-2);
+}
+
+/* Images within posts */
+.post-body img {
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  cursor: zoom-in;
+  transition: box-shadow var(--transition-base);
+}
+
+.post-body img:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Figure with caption */
+.post-body figure {
+  margin-inline: 0;
+}
+
+.post-body figcaption {
+  margin-block-start: var(--space-2);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+  text-align: center;
+}
+
+/* Post footer */
+.post-footer {
+  margin-block-start: var(--space-16);
+  padding-block-start: var(--space-10);
+  border-block-start: 1px solid var(--color-border-subtle);
+}
+
+/* Post navigation (prev/next) */
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  font-family: var(--font-family-ui);
+}
+
+.post-nav__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  text-decoration: none;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background-color: var(--color-surface);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.post-nav__link:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.post-nav__link--next {
+  text-align: end;
+}
+
+.post-nav__label {
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-caps);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.post-nav__title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  list-style: none;
+  padding: 0;
+  margin-block-end: var(--space-8);
+}
+
+.breadcrumb li + li::before {
+  content: "/";
+  color: var(--color-border);
+  margin-inline-end: var(--space-2);
+}
+
+.breadcrumb a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--color-accent);
+}
+
+.breadcrumb [aria-current="page"] {
+  color: var(--color-text-secondary);
+}
+
+
+/* ==========================================================================
+   8. CRAFT TYPE TAGS / BADGES
+   ========================================================================== */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-tag-text);
+  background-color: var(--color-tag-bg);
+  border-radius: var(--border-radius-full);
+  padding: var(--space-1) var(--space-3);
+  text-decoration: none;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+a.tag:hover {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.tag--active {
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+a.tag--active:hover {
+  background-color: var(--color-accent-hover);
+  color: var(--color-text-inverse);
+}
+
+
+/* ==========================================================================
+   9. PROJECT STATUS BADGE
+   ========================================================================== */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--border-radius-full);
+}
+
+.status-badge::before {
+  content: "";
+  display: block;
+  inline-size: 6px;
+  block-size: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.status-badge--in-progress {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-badge--completed {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge--paused {
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+}
+
+
+/* ==========================================================================
+   10. HERO / PAGE HEADER
+   ========================================================================== */
+
+.page-hero {
+  padding-block: var(--space-60);
+  text-align: center;
+}
+
+.page-hero h1 {
+  margin-block-end: var(--space-6);
+}
+
+.page-hero .lead {
+  max-inline-size: 50ch;
+  margin-inline: auto;
+}
+
+
+/* ==========================================================================
+   11. FEATURED IMAGE
+   ========================================================================== */
+
+.featured-image {
+  inline-size: 100%;
+  block-size: clamp(220px, 45vw, 480px);
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  margin-block-end: var(--space-10);
+}
+
+
+/* ==========================================================================
+   12. COMMENTS SECTION (placeholder for Giscus)
+   ========================================================================== */
+
+.comments {
+  margin-block-start: var(--space-16);
+  padding-block-start: var(--space-10);
+  border-block-start: 1px solid var(--color-border-subtle);
+}
+
+.comments__heading {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  margin-block-end: var(--space-8);
+}
+
+
+/* ==========================================================================
+   13. UTILITY CLASSES
+   ========================================================================== */
+
+/* Text alignment */
+.text-start  { text-align: start; }
+.text-center { text-align: center; }
+.text-end    { text-align: end; }
+
+/* Text size */
+.text-xs   { font-size: var(--font-size-xs); }
+.text-sm   { font-size: var(--font-size-sm); }
+.text-md   { font-size: var(--font-size-md); }
+.text-lg   { font-size: var(--font-size-lg); }
+
+/* Text color */
+.text-primary   { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-muted     { color: var(--color-text-muted); }
+.text-accent    { color: var(--color-accent); }
+
+/* Font family */
+.font-heading { font-family: var(--font-family-heading); }
+.font-body    { font-family: var(--font-family-body); }
+.font-ui      { font-family: var(--font-family-ui); }
+
+/* Visually hidden (accessible) */
+.sr-only {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  inset-block-start: var(--space-4);
+  inset-inline-start: var(--space-4);
+  z-index: var(--z-toast);
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  font-family: var(--font-family-ui);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform var(--transition-fast);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Focus ring (for non-link interactive elements) */
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--border-radius-sm);
+}
+
+/* Truncate text */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Spacing helpers */
+.mt-auto { margin-block-start: auto; }
+.mb-auto { margin-block-end: auto; }
+
+
+/* ==========================================================================
+   14. MEDIA QUERIES — RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+
+/* Tablet and below */
+@media (max-width: 768px) {
+  .site-header__inner {
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .site-nav {
+    gap: 0;
+  }
+
+  .site-nav__link {
+    padding: var(--space-2) var(--space-2);
+  }
+
+  .post-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .post-nav__link--next {
+    text-align: start;
+  }
+
+  .site-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .page-hero {
+    padding-block: var(--space-12);
+  }
+
+  .section {
+    padding-block: var(--space-12);
+  }
+}
+
+
+/* ==========================================================================
+   15. PRINT STYLES
+   ========================================================================== */
+
+@media print {
+  .site-header,
+  .site-footer,
+  .post-nav,
+  .comments,
+  .tag-filter {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  img {
+    max-inline-size: 100%;
+    page-break-inside: avoid;
+  }
+}
