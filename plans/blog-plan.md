@@ -20,10 +20,10 @@ A photo-heavy blog for documenting creative hobby projects (sewing, embroidery, 
 - Post update changelog (visible history of revisions with dates and notes)
 
 ### Future Features (Architecture Support)
-- Ã°Å¸â€Â® Search functionality (data structured to support this)
-- Ã°Å¸â€Â® Comments system (space in UI/architecture)
-- Ã°Å¸â€Â® Image gallery component
-- Ã°Å¸â€Â® Additional metadata (materials, difficulty, time, etc.)
+- Search functionality (data structured to support this)
+- Comments system (space in UI/architecture)
+- Image gallery component
+- Additional metadata (materials, difficulty, time, etc.)
 
 ---
 
@@ -361,13 +361,13 @@ Component fetches the HTML file and can either:
 
 :root {
   /* Colors - Role-based tokens */
-  --color-background: #ffffff;
-  --color-surface: #f8f9fa;
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #666666;
-  --color-accent: #d4a574;
-  --color-accent-hover: #c28b5a;
-  --color-border: #e0e0e0;
+  --color-background: ;
+  --color-surface: ;
+  --color-text-primary: ;
+  --color-text-secondary: ;
+  --color-accent: ;
+  --color-accent-hover: ;
+  --color-border: ;
   
   /* Typography */
   --font-family-base: system-ui, -apple-system, sans-serif;
@@ -402,24 +402,24 @@ Component fetches the HTML file and can either:
 
 /* Dark theme */
 [data-theme="dark"] {
-  --color-background: #1a1a1a;
-  --color-surface: #2a2a2a;
-  --color-text-primary: #f0f0f0;
-  --color-text-secondary: #a0a0a0;
-  --color-accent: #d4a574;
-  --color-accent-hover: #e6b886;
-  --color-border: #3a3a3a;
+  --color-background: ;
+  --color-surface: ;
+  --color-text-primary: ;
+  --color-text-secondary: ;
+  --color-accent: ;
+  --color-accent-hover: ;
+  --color-border: ;
 }
 
 /* Warm theme (example alternate) */
 [data-theme="warm"] {
-  --color-background: #faf8f5;
-  --color-surface: #f5f1eb;
-  --color-text-primary: #2c2416;
-  --color-text-secondary: #6b5d4f;
-  --color-accent: #b8704d;
-  --color-accent-hover: #a05a3a;
-  --color-border: #e3ddd4;
+  --color-background: ;
+  --color-surface: ;
+  --color-text-primary: ;
+  --color-text-secondary: ;
+  --color-accent: ;
+  --color-accent-hover: ;
+  --color-border: ;
 }
 ```
 
@@ -769,24 +769,7 @@ When ready to add comments, the blog will use [Giscus](https://giscus.app/), whi
 </article>
 ```
 
-**4. Style the Comments Section**
-```css
-.comments {
-  margin-top: var(--space-xl);
-  padding-top: var(--space-lg);
-  border-top: 1px solid var(--color-border);
-}
 
-.comments h3 {
-  font-family: var(--font-family-heading);
-  margin-bottom: var(--space-md);
-}
-
-/* Dark theme support */
-[data-theme="dark"] .giscus {
-  color-scheme: dark;
-}
-```
 
 ### Future: Export and Self-Host Comments
 
@@ -1160,11 +1143,15 @@ The choice is yours:
 ## Implementation Phases
 
 ### Phase 1: Foundation (Week 1-2)
-- [ ] Set up GitHub Pages repository
-- [ ] Create base HTML structure
-- [ ] Implement CSS custom properties system
+- [x] Set up GitHub Pages repository
+- [x] GitHub Codespace configured
+- [x] styles/base.css — complete (covers more than originally planned; effectively includes what was reserved for components.css)
+- [x] styles/themes.css — complete with light, dark, and plum themes; craft badge colors; accessibility notes
 - [ ] Build core components: `<post-card>`, `<post-list>`
-- [ ] Create basic homepage and blog list
+- [x] Create basic homepage
+- [ ] Create basic blog list
+- [x] Placeholder blog post HTML file exists
+
 
 ### Phase 2: Content System (Week 3)
 - [ ] Write build script for JSON generation
@@ -1507,6 +1494,9 @@ Use this template for consistent metadata across posts:
 - [ ] Which markdown editor works best for your workflow?
 
 ---
+## pathing decision 3/1/2026
+
+ Relative paths chosen over root-relative paths for all internal links and assets, with the path depth rule documented (root = no hops, posts/ = ../, projects/slug/ = ../../)
 
 ## Content Storage Decision
 
