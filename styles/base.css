@@ -9,7 +9,7 @@
    Body: Literata (designed for reading on screens — high legibility)
    UI: DM Sans (clean, friendly, modern)
    -------------------------------------------------------------------------- */
-
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Literata:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500;600&display=swap');
 
 /* ==========================================================================
    1. MODERN CSS RESET
@@ -46,7 +46,7 @@ html {
 body {
   min-block-size: 100vh;
   line-height: var(--line-height-base);
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   color: var(--color-text-primary);
   background-color: var(--color-background);
@@ -102,11 +102,6 @@ h1, h2, h3, h4, h5, h6 {
 :root {
 
   /* --- Typography --- */
-  --font-family-heading:    'Lora', Georgia, serif;
-  --font-family-body:       'Literata', Georgia, serif;
-  --font-family-ui:         'DM Sans', system-ui, sans-serif;
-  --font-family-mono:       'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
-
   /* Fluid type scale — clamp(min, preferred, max) */
   --font-size-xs:           clamp(0.75rem,  0.7rem + 0.25vw,  0.8125rem);
   --font-size-sm:           clamp(0.875rem, 0.825rem + 0.25vw, 0.9375rem);
@@ -983,7 +978,7 @@ a.tag--active:hover {
 
 /* Font family */
 .font-heading { font-family: var(--font-family-heading); }
-.font-body    { font-family: var(--font-family-body); }
+.font-body    { font-family: var(--font-family-base); }
 .font-ui      { font-family: var(--font-family-ui); }
 
 /* Visually hidden (accessible) */
