@@ -81,8 +81,10 @@
 --color-texture-cool: rgba(42, 63, 56, 0.05);
 
   /* Typography */
-  --font-family-base: system-ui, -apple-system, sans-serif;
-  --font-family-heading: Georgia, serif;
+  --font-family-base: 'Literata', Georgia, serif;
+  --font-family-heading: 'Lora', Georgia, serif;
+  --font-family-ui:      'DM Sans', system-ui, sans-serif; /* for UI control elements
+  --font-family-mono:    'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
   --font-size-base: 1rem;
   --font-size-small: 0.875rem;
   --font-size-large: 1.25rem;
