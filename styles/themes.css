@@ -72,45 +72,24 @@
   --color-border: #d0dbd7;           /* Muted green-gray — dividers, input borders */
 
   --color-text-muted: #8a9490;
---color-text-inverse: #ffffff;
---color-accent-subtle: #f3eaf2;
---color-tag-bg: #f3eaf2;
---color-tag-text: #562f54;
---color-border-subtle: #e8efec;
---color-texture-warm: rgba(86, 47, 84, 0.04);
---color-texture-cool: rgba(42, 63, 56, 0.05);
+  --color-text-inverse: #ffffff;
+  --color-accent-subtle: #f3eaf2;
+  --color-tag-bg: #f3eaf2;
+  --color-tag-text: #562f54;
+  --color-border-subtle: #e8efec;
+  --color-texture-warm: rgba(86, 47, 84, 0.04);
+  --color-texture-cool: rgba(42, 63, 56, 0.05);
 
-  /* Typography */
+  /* Typography — font families only; sizes/line-heights live in base.css */
   --font-family-base: 'Literata', Georgia, serif;
   --font-family-heading: 'Lora', Georgia, serif;
-  --font-family-ui:      'DM Sans', system-ui, sans-serif; /* for UI control elements
+  --font-family-ui:      'DM Sans', system-ui, sans-serif;
   --font-family-mono:    'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
-  --font-size-base: 1rem;
-  --font-size-small: 0.875rem;
-  --font-size-large: 1.25rem;
-  --line-height-base: 1.6;
-  --line-height-tight: 1.2;
-
-  /* Spacing */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 2rem;
-  --space-xl: 4rem;
-
-  /* Layout */
-  --max-width-content: 65ch;
-  --max-width-wide: 1200px;
-  --border-radius: 8px;
 
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(42, 63, 56, 0.10);
   --shadow-md: 0 4px 6px rgba(42, 63, 56, 0.10);
   --shadow-lg: 0 10px 20px rgba(42, 63, 56, 0.14);
-
-  /* Transitions */
-  --transition-fast: 150ms ease;
-  --transition-base: 250ms ease;
 }
 
 
@@ -147,14 +126,14 @@
   --color-highlight-text: #f0e8f0;   /* Pale lavender — text on plum backgrounds */
 
   --color-border: #3a5248;           /* Dark forest — dividers, borders */
-     --color-text-muted: #6b7b76;
-   --color-text-inverse: #1e2e29;
-   --color-accent-subtle: #1e3d2f;
-   --color-tag-bg: #1e3d2f;
-   --color-tag-text: #8df588;
-   --color-border-subtle: #2e4a40;
-   --color-texture-warm: rgba(246, 80, 189, 0.04);
---color-texture-cool: rgba(141, 245, 136, 0.03);
+  --color-text-muted: #6b7b76;
+  --color-text-inverse: #1e2e29;
+  --color-accent-subtle: #1e3d2f;
+  --color-tag-bg: #1e3d2f;
+  --color-tag-text: #8df588;
+  --color-border-subtle: #2e4a40;
+  --color-texture-warm: rgba(246, 80, 189, 0.04);
+  --color-texture-cool: rgba(141, 245, 136, 0.03);
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.40);
@@ -189,14 +168,14 @@
   --color-highlight-text: #8df588;   /* Mint text on forest: 8.33:1 ✅ AAA */
 
   --color-border: #6e4470;
-   --color-text-muted: #9a7a98;
-   --color-text-inverse: #3d2240;
-   --color-accent-subtle: #4a2a48;
-   --color-tag-bg: #4a2a48;
-   --color-tag-text: #f0e8f0;
-   --color-border-subtle: #5a3858;
-   --color-texture-warm: rgba(246, 80, 189, 0.06);
-   --color-texture-cool: rgba(141, 245, 136, 0.04);
+  --color-text-muted: #9a7a98;
+  --color-text-inverse: #3d2240;
+  --color-accent-subtle: #4a2a48;
+  --color-tag-bg: #4a2a48;
+  --color-tag-text: #f0e8f0;
+  --color-border-subtle: #5a3858;
+  --color-texture-warm: rgba(246, 80, 189, 0.06);
+  --color-texture-cool: rgba(141, 245, 136, 0.04);
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.30);
