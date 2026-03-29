@@ -159,6 +159,9 @@ h1, h2, h3, h4, h5, h6 {
 
   --content-padding-inline: clamp(var(--space-4), 5vw, var(--space-12));
 
+  /* --- Surface colors --- */
+  --color-surface-frosted: color-mix(in srgb, var(--color-background) 92%, transparent);
+
   /* --- Borders --- */
   --border-radius-sm:   4px;
   --border-radius:      8px;
@@ -506,12 +509,8 @@ hr.flourish::after {
 
 /* --- Section spacing --- */
 
-.section {
+section {
   padding-block: var(--space-16);
-}
-
-.section--lg {
-  padding-block: var(--space-24);
 }
 
 
@@ -522,7 +521,7 @@ hr.flourish::after {
 .site-header {
   padding-block: var(--space-6);
   border-block-end: 1px solid var(--color-border-subtle);
-  background-color: color-mix(in srgb, var(--color-background) 92%, transparent);
+  background-color: var(--color-surface-frosted);
   backdrop-filter: blur(8px);
   position: sticky;
   inset-block-start: 0;
@@ -620,7 +619,7 @@ hr.flourish::after {
   padding-block: var(--space-12);
   margin-block-start: var(--space-20);
   border-block-start: 1px solid var(--color-border);
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-frosted);
 }
 
 .site-footer__inner {
@@ -910,7 +909,7 @@ a.tag--active:hover {
    ========================================================================== */
 
 .page-hero {
-  padding-block: var(--space-60);
+  padding-block: var(--space-32);
   text-align: center;
 }
 
