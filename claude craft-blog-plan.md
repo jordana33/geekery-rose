@@ -1193,6 +1193,7 @@ The choice is yours:
 - Mobile-first responsive design
 - Avoid !important declarations
 - Use logical properties (margin-inline, padding-block)
+- Single-direction spacing: prefer `margin-block-start` over `margin-block-end` — spacing always comes from the top so there is only one place to look when debugging layout
 
 ### JavaScript Practices
 - Use modern ES modules (`import`/`export`)
