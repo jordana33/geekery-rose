@@ -17,14 +17,17 @@
   <!-- Post update changelog — add one tag per revision, oldest first -->
   <!-- <meta property="post:update" content="2025-03-01|Added note about blocking differences between yarns"> -->
 
-  <link rel="stylesheet" href="/styles/themes.css">
-  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="../styles/themes.css">
+  <link rel="stylesheet" href="../styles/base.css">
 
+  <!-- Web components -->
+  <script type="module" src="../components/site-header.js"></script>
+  <script type="module" src="../components/site-footer.js"></script>
   <!--
     Web components referenced below are not yet built.
     image-lightbox.js: activates full-screen viewer on any img[data-lightbox]
   -->
-  <script type="module" src="/components/image-lightbox.js"></script>
+  <script type="module" src="../components/image-lightbox.js"></script>
 
 
 </head>
@@ -33,31 +36,7 @@
 
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- ================================================================
-       SITE HEADER
-       ================================================================ -->
-  <header class="site-header">
-    <div class="container site-header__inner">
-
-      <a href="/" class="site-logo">Geekery <em>Rose</em></a>
-
-      <nav aria-label="Main navigation" class="site-nav">
-        <a href="/blog.html"     class="site-nav__link">Blog</a>
-        <a href="/projects.html" class="site-nav__link">Projects</a>
-        <a href="/about.html"    class="site-nav__link">About</a>
-        <a href="/feed.xml" class="nav-rss" aria-label="RSS feed">
-          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-            <path d="M2 2a1 1 0 0 0 0 2 9 9 0 0 1 9 9 1 1 0 0 0 2 0A11 11 0 0 0 2 2zm0 4a1 1 0 0 0 0 2 5 5 0 0 1 5 5 1 1 0 0 0 2 0A7 7 0 0 0 2 6zm0 4a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
-          </svg>
-        </a>
-      </nav>
-
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-        ☾ Dark
-      </button>
-
-    </div>
-  </header>
+  <site-header></site-header>
 
 
   <!-- ================================================================
@@ -70,8 +49,8 @@
         <!-- Breadcrumb -->
         <nav aria-label="Breadcrumb">
           <ol class="breadcrumb">
-            <li><a href="/">Home</a></li>
-            <li><a href="/projects/cozy-cardigan/">Cozy Cardigan</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../projects/cozy-cardigan/">Cozy Cardigan</a></li>
             <li aria-current="page">Part 1: Planning &amp; Swatching</li>
           </ol>
         </nav>
@@ -214,15 +193,15 @@ Repeat Row 2 until piece measures 15" from foundation</code></pre>
           <h2>What's Next</h2>
           <p>
             Gauge is confirmed, yarn is wound, and the pattern is marked up. In
-            <a href="/posts/2025-02-01-cozy-cardigan-part-2.html">Part 2</a> I'll start
+            <a href="2025-02-01-cozy-cardigan-part-2.html">Part 2</a> I'll start
             the back panel.
           </p>
 
           <hr class="flourish">
 
           <div class="post-tags">
-            <a href="/tags/crochet.html" class="tag tag--crochet">Crochet</a>
-            <a href="/tags/knitting.html" class="tag tag--knitting">Knitting</a>
+            <a href="../tags/crochet.html" class="tag tag--crochet">Crochet</a>
+            <a href="../tags/knitting.html" class="tag tag--knitting">Knitting</a>
           </div>
 
         </div><!-- /post-body -->
@@ -232,11 +211,11 @@ Repeat Row 2 until piece measures 15" from foundation</code></pre>
         <footer class="post-footer">
 
           <nav class="post-nav" aria-label="Post navigation">
-            <a href="/posts/2024-12-20-embroidered-tote.html" class="post-nav__link">
+            <a href="2024-12-20-embroidered-tote.html" class="post-nav__link">
               <span class="post-nav__label">← Previous post</span>
               <span class="post-nav__title">Embroidered Market Tote: Finished!</span>
             </a>
-            <a href="/posts/2025-02-01-cozy-cardigan-part-2.html" class="post-nav__link post-nav__link--next">
+            <a href="2025-02-01-cozy-cardigan-part-2.html" class="post-nav__link post-nav__link--next">
               <span class="post-nav__label">Next post →</span>
               <span class="post-nav__title">Cozy Cardigan – Part 2: The Back Panel</span>
             </a>
@@ -249,18 +228,7 @@ Repeat Row 2 until piece measures 15" from foundation</code></pre>
   </main>
 
 
-  <!-- ================================================================
-       SITE FOOTER
-       ================================================================ -->
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <p>Geekery Rose &copy; 2026 &mdash; Made with yarn, stitches, and native web components</p>
-      <a href="https://github.com/jordana33/geekery-rose" class="site-footer__source">View source on GitHub</a>
-    </div>
-  </footer>
-
-
-  <script src="/js/theme-toggle.js"></script>
+  <site-footer></site-footer>
 
 </body>
 </html>
