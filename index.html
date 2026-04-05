@@ -8,37 +8,18 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="styles/themes.css">
   <link rel="stylesheet" href="styles/base.css">
-  
+
+  <!-- Web components -->
+  <script type="module" src="components/site-header.js"></script>
+  <script type="module" src="components/site-footer.js"></script>
+
   <!-- RSS Feed -->
-  <link rel="alternate" type="application/rss+xml" title="Geekery Rose RSS Feed" href="/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Geekery Rose RSS Feed" href="feed.xml">
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- Site Header -->
-  <header class="site-header">
-    <div class="container site-header__inner">
-
-      <a href="/" class="site-logo">Geekery <em>Rose</em></a>
-
-      <nav aria-label="Main navigation" class="site-nav">
-        <a href="/blog.html"     class="site-nav__link">Blog</a>
-        <a href="/projects.html" class="site-nav__link">Projects</a>
-        <a href="/about.html"    class="site-nav__link">About</a>
-        <a href="/posts/sample-post.html" class="site-nav__link">Sample Post</a>
-        <a href="/feed.xml" class="nav-rss" aria-label="RSS feed">
-          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-            <path d="M2 2a1 1 0 0 0 0 2 9 9 0 0 1 9 9 1 1 0 0 0 2 0A11 11 0 0 0 2 2zm0 4a1 1 0 0 0 0 2 5 5 0 0 1 5 5 1 1 0 0 0 2 0A7 7 0 0 0 2 6zm0 4a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
-          </svg>
-        </a>
-      </nav>
-
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-        ☾ Dark
-      </button>
-
-    </div>
-  </header>
+  <site-header></site-header>
 
   <!-- Main Content -->
   <main id="main" class="container">
@@ -63,13 +44,6 @@
     </div>
   </main>
 
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <p>Geekery Rose &copy; 2026 &mdash; Made with yarn, stitches, and native web components</p>
-      <a href="https://github.com/jordana33/geekery-rose" class="site-footer__source">View source on GitHub</a>
-    </div>
-  </footer>
-  <script src="/js/theme-toggle.js"></script>
+  <site-footer></site-footer>
 </body>
 </html>

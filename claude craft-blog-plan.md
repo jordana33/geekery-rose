@@ -10,6 +10,7 @@ A photo-heavy blog for documenting creative hobby projects (sewing, embroidery, 
 ## Working with claude preferences
 - do NOT jump ahead and make additional anticipated changes.
 - I prefer to work in discrete steps.
+- Do NOT use root-relative paths (e.g. `/js/foo.js`, `/styles/bar.css`). The site is deployed to GitHub Pages under a subpath (`/geekery-rose/`), so absolute paths break in production. Always use relative paths (e.g. `js/foo.js` from root, `../js/foo.js` from `posts/`).
 
 ## Local Development Server
 
@@ -1124,7 +1125,8 @@ The choice is yours:
 - [x] Create base HTML structure
 - [x] Implement CSS custom properties system
 - [ ] Add sample post summary card to index.html (recent posts) and blog.html (full list)
-- [ ] Build `<site-header>` and `<site-footer>` components to eliminate HTML duplication across pages (active nav link set dynamically via `location.pathname`; absorbs `js/theme-toggle.js`)
+- [x] Build `<site-header>` and `<site-footer>` components to eliminate HTML duplication across pages (active nav link set dynamically via `location.pathname`; absorbs `js/theme-toggle.js`)
+- [ ] Add theme persistence via `localStorage` in `site-header.js` (restore saved theme on load, save on toggle)
 - [ ] Build core components: `<post-card>`, `<post-list>`
 - [ ] Create basic homepage and blog list
 - [x] styles are in-lined in sample blog post

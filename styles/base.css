@@ -590,7 +590,8 @@ section {
 
 .site-nav__link[aria-current="page"] {
   color: var(--color-accent);
-  background-color: var(--color-accent-subtle);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* RSS link in nav */
