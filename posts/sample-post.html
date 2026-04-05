@@ -3,915 +3,264 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cozy Cardigan – Part 1: Planning & Swatching | Geekery Rose</title>
+  <title>Cozy Cardigan – Part 1: Planning &amp; Swatching | Geekery Rose</title>
 
-  <!-- Post metadata (as per blog plan) -->
-  <meta property="post:slug" content="cozy-cardigan-part-1">
-  <meta property="post:date" content="2025-01-14">
-  <meta property="post:project" content="cozy-cardigan">
+  <!-- Post metadata (read by scripts/build.js to generate data/posts.json) -->
+  <meta property="post:slug"             content="cozy-cardigan-part-1">
+  <meta property="post:date"             content="2025-01-14">
+  <meta property="post:project"          content="cozy-cardigan">
   <meta property="post:project-sequence" content="1">
-  <meta property="post:craft-types" content="crochet,knitting">
-  <meta property="post:summary" content="Starting my first cardigan — yarn choices, gauge swatches, and my very unrealistic timeline.">
-  <meta property="post:featured-image" content="/images/posts/2025-01-14/hero.jpg">
+  <meta property="post:craft-types"      content="crochet,knitting">
+  <meta property="post:summary"          content="Starting my first cardigan — yarn choices, gauge swatches, and my very unrealistic timeline.">
+  <meta property="post:featured-image"   content="/images/posts/2025-01-14/hero.jpg">
 
-  <style>
-    /* ============================================================
-       THEME TOKENS — from themes.css
-       (In production these come from /styles/themes.css)
-       ============================================================ */
-    :root {
-      --color-background: #f4f7f5;
-      --color-surface: #ffffff;
-      --color-text-primary: #2a3f38;
-      --color-text-secondary: #57585d;
-      --color-accent: #562f54;
-      --color-accent-hover: #7a4578;
-      --color-accent-secondary: #f650bd;
-      --color-accent-secondary-hover: #d93da6;
-      --color-highlight: #8df588;
-      --color-highlight-text: #2a3f38;
-      --color-border: #d0dbd7;
+  <!-- Post update changelog — add one tag per revision, oldest first -->
+  <!-- <meta property="post:update" content="2025-03-01|Added note about blocking differences between yarns"> -->
 
-      --badge-bg-crochet:    #2a3f38;  --badge-text-crochet:    #8df588;
-      --badge-bg-knitting:   #562f54;  --badge-text-knitting:   #f0e8f0;
-      --badge-bg-embroidery: #3d2240;  --badge-text-embroidery: #f0e8f0;
-      --badge-bg-sewing:     #2a3f38;  --badge-text-sewing:     #e8f5e2;
-      --badge-bg-beading:    #57585d;  --badge-text-beading:    #ffffff;
+  <link rel="stylesheet" href="/styles/themes.css">
+  <link rel="stylesheet" href="/styles/base.css">
 
-      --font-family-base: system-ui, -apple-system, sans-serif;
-      --font-family-heading: Georgia, serif;
-      --font-size-base: 1rem;
-      --font-size-small: 0.875rem;
-      --font-size-large: 1.25rem;
-      --line-height-base: 1.6;
-      --line-height-tight: 1.2;
+  <!--
+    Web components referenced below are not yet built.
+    image-lightbox.js: activates full-screen viewer on any img[data-lightbox]
+  -->
+  <script type="module" src="/components/image-lightbox.js"></script>
 
-      --space-xs: 0.25rem;
-      --space-sm: 0.5rem;
-      --space-md: 1rem;
-      --space-lg: 2rem;
-      --space-xl: 4rem;
 
-      --max-width-content: 65ch;
-      --max-width-wide: 1200px;
-      --border-radius: 8px;
-
-      --shadow-sm: 0 1px 3px rgba(42, 63, 56, 0.10);
-      --shadow-md: 0 4px 6px rgba(42, 63, 56, 0.10);
-      --shadow-lg: 0 10px 20px rgba(42, 63, 56, 0.14);
-
-      --transition-fast: 150ms ease;
-      --transition-base: 250ms ease;
-    }
-
-    [data-theme="dark"] {
-      --color-background: #1e2e29;
-      --color-surface: #2a3f38;
-      --color-text-primary: #e8f5e2;
-      --color-text-secondary: #a0a8a4;
-      --color-accent: #8df588;
-      --color-accent-hover: #a8f9a4;
-      --color-accent-secondary: #f650bd;
-      --color-accent-secondary-hover: #f975cc;
-      --color-highlight: #562f54;
-      --color-highlight-text: #f0e8f0;
-      --color-border: #3a5248;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.35);
-      --shadow-md: 0 4px 6px rgba(0,0,0,0.40);
-      --shadow-lg: 0 10px 20px rgba(0,0,0,0.50);
-    }
-
-
-    /* ============================================================
-       BASE.CSS — THIS IS WHAT THE FILE NEEDS TO DEFINE
-       Each section is labelled with what base.css should contain.
-       ============================================================ */
-
-    /* ----------------------------------------------------------
-       1. CSS RESET / NORMALIZE
-       base.css should include a minimal reset so all browsers
-       start from the same baseline.
-       ---------------------------------------------------------- */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* ----------------------------------------------------------
-       2. ROOT / BODY DEFAULTS
-       base.css sets the background, default text color, font,
-       line-height, and scroll behaviour on the html/body elements.
-       ---------------------------------------------------------- */
-    html {
-      scroll-behavior: smooth;
-      font-size: 100%; /* 16px base — don't change, use rem */
-    }
-
-    body {
-      background-color: var(--color-background);
-      color: var(--color-text-primary);
-      font-family: var(--font-family-base);
-      font-size: var(--font-size-base);
-      line-height: var(--line-height-base);
-      min-height: 100vh;
-    }
-
-    /* ----------------------------------------------------------
-       3. TYPOGRAPHY SCALE
-       base.css defines headings, body copy, and small text using
-       the CSS custom property font scale. Headings use the serif
-       font-family-heading; body uses font-family-base.
-       ---------------------------------------------------------- */
-    h1, h2, h3, h4, h5, h6 {
-      font-family: var(--font-family-heading);
-      line-height: var(--line-height-tight);
-      color: var(--color-text-primary);
-    }
-
-    h1 { font-size: 2.25rem;  margin-block-end: var(--space-md); }
-    h2 { font-size: 1.5rem;   margin-block-end: var(--space-sm); margin-block-start: var(--space-lg); }
-    h3 { font-size: 1.25rem;  margin-block-end: var(--space-sm); margin-block-start: var(--space-md); }
-    h4 { font-size: 1.1rem;   margin-block-end: var(--space-xs); }
-
-    p {
-      margin-block-end: var(--space-md);
-      max-width: var(--max-width-content);
-    }
-
-    small, .text-small {
-      font-size: var(--font-size-small);
-      color: var(--color-text-secondary);
-    }
-
-    /* ----------------------------------------------------------
-       4. LINKS
-       base.css sets default link appearance using the accent
-       color, with a hover/focus state using accent-hover.
-       ---------------------------------------------------------- */
-    a {
-      color: var(--color-accent);
-      text-decoration: underline;
-      text-decoration-color: transparent;
-      text-underline-offset: 3px;
-      transition: color var(--transition-fast),
-                  text-decoration-color var(--transition-fast);
-    }
-
-    a:hover {
-      color: var(--color-accent-hover);
-      text-decoration-color: var(--color-accent-hover);
-    }
-
-    a:focus-visible {
-      outline: 2px solid var(--color-accent);
-      outline-offset: 3px;
-      border-radius: 2px;
-    }
-
-    /* ----------------------------------------------------------
-       5. LISTS
-       base.css provides sensible defaults for ul/ol in prose
-       contexts, with proper indentation.
-       ---------------------------------------------------------- */
-    ul, ol {
-      padding-inline-start: var(--space-lg);
-      margin-block-end: var(--space-md);
-      max-width: var(--max-width-content);
-    }
-
-    li {
-      margin-block-end: var(--space-xs);
-    }
-
-    li:last-child {
-      margin-block-end: 0;
-    }
-
-    /* ----------------------------------------------------------
-       6. IMAGES
-       base.css makes images responsive by default, and adds
-       sensible display/border-radius defaults.
-       ---------------------------------------------------------- */
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      border-radius: var(--border-radius);
-    }
-
-    figure {
-      margin-block: var(--space-lg);
-      margin-inline: 0;
-    }
-
-    figcaption {
-      font-size: var(--font-size-small);
-      color: var(--color-text-secondary);
-      margin-block-start: var(--space-xs);
-      font-style: italic;
-    }
-
-    /* ----------------------------------------------------------
-       7. BLOCKQUOTE
-       base.css styles blockquotes with a left border in the
-       accent color and slightly muted text.
-       ---------------------------------------------------------- */
-    blockquote {
-      border-inline-start: 4px solid var(--color-accent);
-      padding-inline-start: var(--space-md);
-      margin-block: var(--space-md);
-      margin-inline: 0;
-      color: var(--color-text-secondary);
-      font-style: italic;
-      max-width: var(--max-width-content);
-    }
-
-    blockquote p { color: inherit; }
-
-    /* ----------------------------------------------------------
-       8. INLINE CODE & CODE BLOCKS
-       base.css styles <code> and <pre> for any technical content.
-       ---------------------------------------------------------- */
-    code {
-      font-family: ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
-      font-size: 0.9em;
-      background: var(--color-highlight);
-      color: var(--color-highlight-text);
-      padding: 0.1em 0.35em;
-      border-radius: 3px;
-    }
-
-    pre {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--border-radius);
-      padding: var(--space-md);
-      overflow-x: auto;
-      margin-block: var(--space-md);
-    }
-
-    pre code {
-      background: none;
-      padding: 0;
-      font-size: var(--font-size-small);
-    }
-
-    /* ----------------------------------------------------------
-       9. HORIZONTAL RULE
-       base.css gives <hr> a styled appearance using border color.
-       ---------------------------------------------------------- */
-    hr {
-      border: none;
-      border-block-start: 1px solid var(--color-border);
-      margin-block: var(--space-xl);
-    }
-
-    /* ----------------------------------------------------------
-       10. TABLES
-       base.css provides a clean, readable table style.
-       ---------------------------------------------------------- */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-block: var(--space-md);
-      font-size: var(--font-size-small);
-    }
-
-    th {
-      background: var(--color-surface);
-      color: var(--color-text-primary);
-      font-family: var(--font-family-heading);
-      text-align: start;
-      padding: var(--space-sm) var(--space-md);
-      border-block-end: 2px solid var(--color-border);
-    }
-
-    td {
-      padding: var(--space-sm) var(--space-md);
-      border-block-end: 1px solid var(--color-border);
-      color: var(--color-text-secondary);
-      vertical-align: top;
-    }
-
-    tr:last-child td { border-block-end: none; }
-
-    /* ----------------------------------------------------------
-       11. LAYOUT UTILITIES
-       base.css provides a .container class for max-width
-       centering and a .wide variant.
-       ---------------------------------------------------------- */
-    .container {
-      max-width: var(--max-width-wide);
-      margin-inline: auto;
-      padding-inline: var(--space-lg);
-    }
-
-    .content-width {
-      max-width: var(--max-width-content);
-    }
-
-    /* ----------------------------------------------------------
-       12. SITE HEADER / FOOTER
-       base.css provides structural styles for the site chrome.
-       ---------------------------------------------------------- */
-    .site-header {
-      background: var(--color-surface);
-      border-block-end: 1px solid var(--color-border);
-      box-shadow: var(--shadow-sm);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .site-header .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-block: var(--space-md);
-      gap: var(--space-md);
-    }
-
-    .site-logo {
-      font-family: var(--font-family-heading);
-      font-size: var(--font-size-large);
-      font-weight: bold;
-      color: var(--color-text-primary);
-      text-decoration: none;
-    }
-
-    .site-logo:hover { color: var(--color-accent); text-decoration-color: transparent; }
-
-    .site-nav {
-      display: flex;
-      gap: var(--space-lg);
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .site-nav a {
-      font-size: var(--font-size-small);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-weight: 600;
-      color: var(--color-text-secondary);
-      text-decoration: none;
-    }
-
-    .site-nav a:hover { color: var(--color-accent); }
-
-    .site-footer {
-      border-block-start: 1px solid var(--color-border);
-      padding-block: var(--space-xl);
-      margin-block-start: var(--space-xl);
-      color: var(--color-text-secondary);
-      font-size: var(--font-size-small);
-      text-align: center;
-    }
-
-    /* ----------------------------------------------------------
-       13. POST STRUCTURE
-       base.css defines the structural layout of a blog post:
-       the article, post header, post footer, and breadcrumbs.
-       ---------------------------------------------------------- */
-    .blog-post {
-      padding-block: var(--space-xl);
-    }
-
-    .post-breadcrumb {
-      font-size: var(--font-size-small);
-      color: var(--color-text-secondary);
-      margin-block-end: var(--space-lg);
-      display: flex;
-      gap: var(--space-xs);
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .post-breadcrumb a {
-      color: var(--color-text-secondary);
-      text-decoration: none;
-    }
-
-    .post-breadcrumb a:hover { color: var(--color-accent); }
-
-    .post-breadcrumb .sep { opacity: 0.4; }
-
-    .post-header {
-      margin-block-end: var(--space-xl);
-    }
-
-    .post-header h1 {
-      margin-block-end: var(--space-sm);
-    }
-
-    .post-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-sm);
-      align-items: center;
-      color: var(--color-text-secondary);
-      font-size: var(--font-size-small);
-      margin-block-end: var(--space-md);
-    }
-
-    .post-meta time { font-variant-numeric: tabular-nums; }
-
-    .post-hero {
-      margin-block: var(--space-lg);
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      aspect-ratio: 16 / 9;
-      background: var(--color-surface);
-    }
-
-    .post-hero img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 0;
-    }
-
-    .post-content {
-      /* This is the main prose area — inherits from body + headings etc. */
-    }
-
-    .post-footer {
-      margin-block-start: var(--space-xl);
-      padding-block-start: var(--space-lg);
-      border-block-start: 1px solid var(--color-border);
-    }
-
-    .post-nav {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-md);
-      margin-block-end: var(--space-lg);
-    }
-
-    .post-nav-link {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--border-radius);
-      padding: var(--space-md);
-      text-decoration: none;
-      color: var(--color-text-primary);
-      transition: box-shadow var(--transition-base), transform var(--transition-base);
-    }
-
-    .post-nav-link:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-      color: var(--color-text-primary);
-      text-decoration: none;
-    }
-
-    .post-nav-link .label {
-      display: block;
-      font-size: var(--font-size-small);
-      color: var(--color-text-secondary);
-      margin-block-end: var(--space-xs);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .post-nav-link .title {
-      font-family: var(--font-family-heading);
-      font-size: var(--font-size-base);
-    }
-
-    .post-nav-link.next { text-align: end; }
-
-    /* ----------------------------------------------------------
-       14. CRAFT TYPE BADGES
-       base.css (or components.css) defines badge styles using
-       the badge custom properties from themes.css.
-       ---------------------------------------------------------- */
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-xs);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 0.25em 0.65em;
-      border-radius: 100px;
-      line-height: 1;
-    }
-
-    .badge-crochet   { background: var(--badge-bg-crochet);   color: var(--badge-text-crochet); }
-    .badge-knitting  { background: var(--badge-bg-knitting);  color: var(--badge-text-knitting); }
-    .badge-embroidery{ background: var(--badge-bg-embroidery);color: var(--badge-text-embroidery); }
-    .badge-sewing    { background: var(--badge-bg-sewing);    color: var(--badge-text-sewing); }
-    .badge-beading   { background: var(--badge-bg-beading);   color: var(--badge-text-beading); }
-
-    /* ----------------------------------------------------------
-       15. PROJECT CALLOUT BOX
-       base.css defines the "part of a project" notification box.
-       ---------------------------------------------------------- */
-    .project-callout {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-inline-start: 4px solid var(--color-accent);
-      border-radius: var(--border-radius);
-      padding: var(--space-md);
-      margin-block: var(--space-lg);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-md);
-      flex-wrap: wrap;
-    }
-
-    .project-callout .label {
-      font-size: var(--font-size-small);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--color-text-secondary);
-      margin-block-end: var(--space-xs);
-    }
-
-    .project-callout .name {
-      font-family: var(--font-family-heading);
-      font-size: var(--font-size-large);
-      color: var(--color-text-primary);
-    }
-
-    .project-callout .seq {
-      font-size: var(--font-size-small);
-      color: var(--color-accent);
-      font-weight: 600;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--color-accent);
-      color: #ffffff;
-      padding: var(--space-sm) var(--space-md);
-      border-radius: var(--border-radius);
-      font-size: var(--font-size-small);
-      font-weight: 600;
-      text-decoration: none;
-      transition: background var(--transition-fast), transform var(--transition-fast);
-      white-space: nowrap;
-    }
-
-    .btn:hover {
-      background: var(--color-accent-hover);
-      color: #ffffff;
-      text-decoration: none;
-      transform: translateY(-1px);
-    }
-
-    /* ----------------------------------------------------------
-       16. CALLOUT / ASIDE BOXES
-       base.css styles informational callout boxes (tips, notes).
-       ---------------------------------------------------------- */
-    .callout {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--border-radius);
-      padding: var(--space-md) var(--space-md) var(--space-md) calc(var(--space-md) + 4px);
-      margin-block: var(--space-md);
-      border-inline-start: 4px solid var(--color-highlight-text);
-    }
-
-    .callout.tip { border-inline-start-color: var(--color-accent-secondary); }
-    .callout.note { border-inline-start-color: var(--color-accent); }
-
-    .callout-label {
-      font-size: var(--font-size-small);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-block-end: var(--space-xs);
-    }
-
-    .callout.tip .callout-label { color: var(--color-accent-secondary); }
-    .callout.note .callout-label { color: var(--color-accent); }
-
-    .callout p { max-width: none; margin-block-end: 0; }
-
-    /* ----------------------------------------------------------
-       17. THEME TOGGLE (example utility button)
-       ---------------------------------------------------------- */
-    .theme-toggle {
-      background: none;
-      border: 1px solid var(--color-border);
-      border-radius: var(--border-radius);
-      padding: var(--space-xs) var(--space-sm);
-      color: var(--color-text-secondary);
-      cursor: pointer;
-      font-size: var(--font-size-small);
-      transition: border-color var(--transition-fast), color var(--transition-fast);
-    }
-
-    .theme-toggle:hover {
-      border-color: var(--color-accent);
-      color: var(--color-accent);
-    }
-
-    /* ----------------------------------------------------------
-       18. ANNOTATION LAYER
-       Labels explaining what each visible element demonstrates.
-       ---------------------------------------------------------- */
-    .annotation {
-      display: block;
-      font-family: ui-monospace, monospace;
-      font-size: 0.7rem;
-      color: var(--color-accent-secondary);
-      background: color-mix(in srgb, var(--color-accent-secondary) 8%, transparent);
-      border: 1px dashed color-mix(in srgb, var(--color-accent-secondary) 30%, transparent);
-      border-radius: 3px;
-      padding: 0.15em 0.4em;
-      margin-block-end: var(--space-xs);
-      width: fit-content;
-    }
-
-    /* ----------------------------------------------------------
-       19. IMAGE PLACEHOLDER (for lorem ipsum demo)
-       ---------------------------------------------------------- */
-    .img-placeholder {
-      aspect-ratio: 16 / 9;
-      background: linear-gradient(135deg,
-        var(--color-highlight) 0%,
-        color-mix(in srgb, var(--color-highlight) 40%, var(--color-accent)) 100%);
-      border-radius: var(--border-radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-highlight-text);
-      font-family: var(--font-family-heading);
-      font-size: var(--font-size-small);
-      opacity: 0.7;
-    }
-
-    .img-placeholder.square { aspect-ratio: 1; }
-    .img-placeholder.tall   { aspect-ratio: 3 / 4; }
-
-    /* ----------------------------------------------------------
-       RESPONSIVE
-       base.css handles responsive overrides at mobile breakpoint.
-       ---------------------------------------------------------- */
-    @media (max-width: 640px) {
-      .container { padding-inline: var(--space-md); }
-      h1 { font-size: 1.75rem; }
-      .site-nav { gap: var(--space-md); }
-      .post-nav { grid-template-columns: 1fr; }
-      .post-nav-link.next { text-align: start; }
-      .project-callout { flex-direction: column; align-items: flex-start; }
-    }
-  </style>
 </head>
-<body>
 
-  <!-- ============================================================
+<body class="site-wrapper">
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- ================================================================
        SITE HEADER
-       ============================================================ -->
+       ================================================================ -->
   <header class="site-header">
-    <div class="container">
-      <a href="/" class="site-logo">Geekery Rose 🌹</a>
-      <nav aria-label="Main navigation">
-        <ul class="site-nav">
-          <li><a href="/blog.html">Blog</a></li>
-          <li><a href="/projects.html">Projects</a></li>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/feed.xml">RSS</a></li>
-        </ul>
+    <div class="container site-header__inner">
+
+      <a href="/" class="site-logo">Geekery <em>Rose</em></a>
+
+      <nav aria-label="Main navigation" class="site-nav">
+        <a href="/blog.html"     class="site-nav__link">Blog</a>
+        <a href="/projects.html" class="site-nav__link">Projects</a>
+        <a href="/about.html"    class="site-nav__link">About</a>
+        <a href="/feed.xml" class="nav-rss" aria-label="RSS feed">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M2 2a1 1 0 0 0 0 2 9 9 0 0 1 9 9 1 1 0 0 0 2 0A11 11 0 0 0 2 2zm0 4a1 1 0 0 0 0 2 5 5 0 0 1 5 5 1 1 0 0 0 2 0A7 7 0 0 0 2 6zm0 4a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+          </svg>
+        </a>
       </nav>
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">☾ Dark</button>
+
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        ☾ Dark
+      </button>
+
     </div>
   </header>
 
-  <!-- ============================================================
-       BLOG POST
-       ============================================================ -->
-  <main>
+
+  <!-- ================================================================
+       MAIN CONTENT
+       ================================================================ -->
+  <main id="main">
     <div class="container">
       <article class="blog-post">
 
-        <!-- Breadcrumb nav -->
-        <span class="annotation">base.css → .post-breadcrumb</span>
-        <nav class="post-breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span class="sep" aria-hidden="true">›</span>
-          <a href="/projects/cozy-cardigan/">Cozy Cardigan</a>
-          <span class="sep" aria-hidden="true">›</span>
-          <span>Part 1: Planning &amp; Swatching</span>
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li><a href="/projects/cozy-cardigan/">Cozy Cardigan</a></li>
+            <li aria-current="page">Part 1: Planning &amp; Swatching</li>
+          </ol>
         </nav>
 
         <!-- Post header -->
-        <span class="annotation">base.css → .post-header, h1, .post-meta, .badge</span>
         <header class="post-header">
           <h1>Cozy Cardigan – Part 1: Planning &amp; Swatching</h1>
           <div class="post-meta">
             <time datetime="2025-01-14">January 14, 2025</time>
             <span aria-hidden="true">·</span>
-            <span class="badge badge-crochet">Crochet</span>
-            <span class="badge badge-knitting">Knitting</span>
+            <span class="tag tag--crochet">Crochet</span>
+            <span class="tag tag--knitting">Knitting</span>
           </div>
-          <p class="text-small">Part 1 of the Cozy Cardigan project — starting my first cardigan with yarn choices, gauge swatches, and an extremely ambitious timeline.</p>
+          <p class="lead">
+            Starting my first cardigan — yarn choices, gauge swatches, and an ambitious timeline.
+          </p>
         </header>
 
-        <!-- Hero image -->
-        <span class="annotation">base.css → .post-hero, img (responsive defaults)</span>
-        <div class="post-hero">
-          <div class="img-placeholder" style="aspect-ratio:16/9; border-radius: 0;">
-            [hero image: yarn skeins on a wooden table]
-          </div>
+        <!-- Featured / hero image -->
+        <!--
+          In production:
+          <img class="featured-image"
+               src="/images/posts/2025-01-14/hero.jpg"
+               alt="Three skeins of yarn in rust, sage, and cream arranged on a wooden table"
+               data-lightbox="/images/posts/2025-01-14/hero-large.jpg">
+          data-lightbox activates the <image-lightbox> web component.
+        -->
+        <div class="featured-image img-placeholder">
+          [hero image — yarn skeins on a wooden table]
         </div>
 
-        <!-- Project callout box -->
-        <span class="annotation">base.css → .project-callout</span>
-        <aside class="project-callout">
-          <div>
-            <p class="label">Part of a project</p>
-            <p class="name">Cozy Cardigan</p>
-            <p class="seq">Post 1 of 3</p>
-          </div>
-          <a href="/projects/cozy-cardigan/" class="btn">See all posts →</a>
-        </aside>
+        <!-- Post body -->
+        <div class="post-body">
 
-        <!-- Post content -->
-        <div class="post-content">
-
-          <!-- Regular headings and paragraphs -->
-          <span class="annotation">base.css → h2, p (typography scale)</span>
           <h2>Introduction</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula justo at nisl malesuada, eu tincidunt arcu venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
-          <p>Donec eu libero sit amet quam egestas semper. <a href="#">Aenean ultricies mi vitae est</a>. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.</p>
+          <p>
+            I've been knitting scarves and squares for years, and this winter I decided it was
+            time to try a cardigan. A skein of rust-orange wool at the local shop sealed the deal.
+            This is the log of what happened next.
+          </p>
+          <p>
+            I've tackled smaller garment pieces before, so I went in with a plan: good yarn,
+            careful swatching, and a realistic timeline. Two out of three isn't bad.
+          </p>
 
-          <!-- Image with caption -->
-          <span class="annotation">base.css → figure, figcaption, img</span>
+          <!-- Figure with lightbox-enabled image -->
           <figure>
-            <div class="img-placeholder">[image: three skeins of yarn in rust, sage, and cream]</div>
-            <figcaption>The three colourways I'm considering — from left: Russet, Sage Mist, and Winter Cream. The russet is calling to me but I know I'll panic and choose the safe option.</figcaption>
+            <!--
+              In production:
+              <img src="/images/posts/2025-01-14/yarns.jpg"
+                   alt="Three colourways: Russet, Sage Mist, and Winter Cream"
+                   data-lightbox="/images/posts/2025-01-14/yarns-large.jpg">
+            -->
+            <div class="img-placeholder img-placeholder--4x3">
+              [three colourways: Russet, Sage Mist, and Winter Cream]
+            </div>
+            <figcaption>
+              The three colourways I considered: Russet, Sage Mist, and Winter Cream. I went
+              with Sage Mist — versatile and easier to work with in low light.
+            </figcaption>
           </figure>
 
           <h2>Materials</h2>
-          <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus.</p>
+          <p>
+            After an afternoon at the yarn shop, I came home with the following:
+          </p>
 
-          <!-- Unordered list -->
-          <span class="annotation">base.css → ul, li (list defaults)</span>
           <ul>
-            <li>800g of worsted weight (weight 4) yarn in your chosen colourway</li>
+            <li>800g of worsted weight (weight 4) yarn — Sage Mist colourway</li>
             <li>5mm crochet hook (or size needed to achieve gauge)</li>
-            <li>Stitch markers — at least 10, you will need all of them</li>
+            <li>Stitch markers — at least 10</li>
             <li>Yarn needle for seaming</li>
-            <li>Blocking mats and pins</li>
-            <li>An optimistic attitude and a very long weekend</li>
+            <li>Blocking mats and T-pins</li>
           </ul>
 
-          <!-- Ordered list -->
+          <h2>Gauge Swatches</h2>
+          <p>
+            The pattern calls for 15 hdc × 17 rows over 10cm. I swatched three hook sizes,
+            blocked them all, and measured obsessively.
+          </p>
+
           <h3>Swatching Process</h3>
-          <span class="annotation">base.css → ol, li</span>
           <ol>
             <li>Chain 20 stitches in your chosen yarn and hook.</li>
             <li>Work 20 rows of your main stitch pattern.</li>
-            <li>Bind off loosely and wet block the swatch.</li>
-            <li>Let dry completely — at least 24 hours, resist the urge to check.</li>
-            <li>Measure gauge in the centre of the swatch (edges lie).</li>
+            <li>Bind off loosely and wet-block the swatch.</li>
+            <li>Leave to dry completely — at least 24 hours. Resist the urge to check.</li>
+            <li>Measure gauge at the centre, not the edges.</li>
           </ol>
 
-          <h2>Gauge Swatches</h2>
-          <p>Aenean fermentum risus id tortor. Integer ullamcorper leo ut odio. Fusce lobortis lorem at ipsum semper sagittis. Vivamus at justo pretium augue condimentum commodo.</p>
-
-          <!-- Image grid (two images side by side) -->
-          <span class="annotation">base.css → img, figure (multiple images)</span>
+          <!-- Two images side by side -->
           <figure>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);">
-              <div class="img-placeholder square">[swatch before blocking]</div>
-              <div class="img-placeholder square">[swatch after blocking]</div>
+            <div class="figure-grid">
+              <div class="img-placeholder img-placeholder--1x1">
+                [swatch before blocking]
+              </div>
+              <div class="img-placeholder img-placeholder--1x1">
+                [swatch after blocking]
+              </div>
             </div>
-            <figcaption>Left: the swatch before blocking (lumpy). Right: after blocking (much more civilised). The difference is always humbling.</figcaption>
+            <figcaption>
+              Before and after blocking. The difference is significant — always block before measuring.
+            </figcaption>
           </figure>
 
-          <!-- Blockquote -->
-          <span class="annotation">base.css → blockquote</span>
           <blockquote>
-            <p>"The gauge swatch is not a suggestion. The gauge swatch is the entire project, miniaturised. Respect the swatch."</p>
+            <p>"The gauge swatch is not a suggestion. It is the entire project, miniaturised."</p>
           </blockquote>
 
-          <!-- Table -->
-          <h3>Gauge Results by Hook Size</h3>
-          <span class="annotation">base.css → table, th, td</span>
-          <table>
-            <thead>
-              <tr>
-                <th>Hook Size</th>
-                <th>Stitches / 10cm</th>
-                <th>Rows / 10cm</th>
-                <th>Result</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>4.5mm</td>
-                <td>17</td>
-                <td>19</td>
-                <td>Too tight</td>
-              </tr>
-              <tr>
-                <td>5.0mm</td>
-                <td>15</td>
-                <td>17</td>
-                <td>✅ Matches pattern</td>
-              </tr>
-              <tr>
-                <td>5.5mm</td>
-                <td>13</td>
-                <td>15</td>
-                <td>Too loose</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <!-- Callout boxes -->
-          <span class="annotation">base.css → .callout.note and .callout.tip</span>
-          <div class="callout note">
-            <p class="callout-label">📌 Note</p>
-            <p>If your gauge doesn't match after two hook sizes, the problem might be tension rather than hook size. Try consciously loosening your grip on both the hook and the yarn.</p>
+          <div class="callout callout--note">
+            <p class="callout__label">Note</p>
+            <p>
+              If your gauge doesn't match after two hook sizes, the problem is probably
+              tension rather than hook size. Try consciously loosening your grip on
+              both the hook and the yarn.
+            </p>
           </div>
 
-          <div class="callout tip">
-            <p class="callout-label">✨ Tip</p>
-            <p>Block your swatch the same way you plan to block your finished garment. If you're going to steam block the cardigan, steam block the swatch too — different methods can give very different results.</p>
+          <div class="callout callout--tip">
+            <p class="callout__label">Tip</p>
+            <p>
+              Block your swatch the same way you plan to block the finished garment.
+              Steam blocking and wet blocking give different results — measure after
+              doing whichever method you'll use for the final piece.
+            </p>
           </div>
 
-          <!-- Code block (for any markdown/pattern notation) -->
-          <span class="annotation">base.css → pre, code (inline and block)</span>
-          <h3>Pattern Abbreviations</h3>
-          <p>All patterns in this series use US crochet terminology. The main stitch is the <code>hdc</code> (half double crochet), worked in a <code>ch-2</code> turning chain.</p>
+          <h2>Pattern Abbreviations</h2>
+          <p>
+            All posts in this series use US crochet terminology. The main stitch is
+            <code>hdc</code> (half double crochet), worked into a <code>ch-2</code>
+            turning chain.
+          </p>
 
           <pre><code>Foundation: ch 61
 Row 1: hdc in 3rd ch from hook, hdc across — 59 hdc
 Row 2: ch 2, turn, hdc in each st across
 Repeat Row 2 until piece measures 15" from foundation</code></pre>
 
-          <h2>My Extremely Realistic Timeline</h2>
-          <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-          <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</p>
+          <h2>What's Next</h2>
+          <p>
+            Gauge is confirmed, yarn is wound, and the pattern is marked up. In
+            <a href="/posts/2025-02-01-cozy-cardigan-part-2.html">Part 2</a> I'll start
+            the back panel.
+          </p>
 
-          <figure>
-            <div class="img-placeholder" style="aspect-ratio: 4/3;">[image: notebook page with timeline scrawled in pencil, several things crossed out]</div>
-            <figcaption>My original timeline. The things crossed out are dates. All of them.</figcaption>
-          </figure>
+          <hr class="flourish">
 
-          <!-- HR -->
-          <span class="annotation">base.css → hr</span>
-          <hr>
+          <div class="post-tags">
+            <a href="/tags/crochet.html" class="tag tag--crochet">Crochet</a>
+            <a href="/tags/knitting.html" class="tag tag--knitting">Knitting</a>
+          </div>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. See you in <a href="/posts/2025-02-01-cozy-cardigan-part-2.html">Part 2</a>, where I'll start the back panel and immediately make a catastrophic error.</p>
+        </div><!-- /post-body -->
 
-        </div>
 
-        <!-- Post footer: nav + comments placeholder -->
+        <!-- Post footer -->
         <footer class="post-footer">
 
-          <span class="annotation">base.css → .post-nav (previous / next navigation)</span>
           <nav class="post-nav" aria-label="Post navigation">
-            <a href="/posts/2024-12-20-embroidered-tote.html" class="post-nav-link prev">
-              <span class="label">← Previous post</span>
-              <span class="title">Embroidered Market Tote: Finished!</span>
+            <a href="/posts/2024-12-20-embroidered-tote.html" class="post-nav__link">
+              <span class="post-nav__label">← Previous post</span>
+              <span class="post-nav__title">Embroidered Market Tote: Finished!</span>
             </a>
-            <a href="/posts/2025-02-01-cozy-cardigan-part-2.html" class="post-nav-link next">
-              <span class="label">Next post →</span>
-              <span class="title">Cozy Cardigan – Part 2: The Back Panel</span>
+            <a href="/posts/2025-02-01-cozy-cardigan-part-2.html" class="post-nav__link post-nav__link--next">
+              <span class="post-nav__label">Next post →</span>
+              <span class="post-nav__title">Cozy Cardigan – Part 2: The Back Panel</span>
             </a>
           </nav>
 
-          <!-- Comments section placeholder (Giscus will go here) -->
-          <span class="annotation">base.css → .comments (Giscus placeholder, future)</span>
-          <section class="comments" id="comments">
-            <!-- Giscus script will be inserted here when ready -->
-            <p style="color: var(--color-text-secondary); font-size: var(--font-size-small); font-style: italic;">Comments coming soon via Giscus.</p>
-          </section>
-
         </footer>
+
       </article>
     </div>
   </main>
 
-  <!-- ============================================================
+
+  <!-- ================================================================
        SITE FOOTER
-       ============================================================ -->
+       ================================================================ -->
   <footer class="site-footer">
-    <div class="container">
-      <p>Geekery Rose &copy; 2025 &mdash; Made with yarn, stitches, and native web components &mdash; <a href="/feed.xml">RSS Feed</a></p>
+    <div class="container site-footer__inner">
+      <p>Geekery Rose &copy; 2026 &mdash; Made with yarn, stitches, and native web components</p>
+      <a href="https://github.com/jordana33/geekery-rose" class="site-footer__source">View source on GitHub</a>
     </div>
   </footer>
 
-  <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      document.querySelector('.theme-toggle').textContent = next === 'dark' ? '☀ Light' : '☾ Dark';
-    }
-  </script>
+
+  <script src="/js/theme-toggle.js"></script>
+
 </body>
 </html>

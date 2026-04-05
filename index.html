@@ -1,50 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Geekery Rose - documenting creative hobby projects">
   <title>Geekery Rose - Creative Projects & Tutorials</title>
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/themes.css">
+  <link rel="stylesheet" href="styles/base.css">
   
   <!-- RSS Feed -->
   <link rel="alternate" type="application/rss+xml" title="Geekery Rose RSS Feed" href="/feed.xml">
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
   <!-- Site Header -->
   <header class="site-header">
-    <div class="container">
-      <nav class="site-nav">
-        <a href="/" aria-current="page">Home</a>
-        <a href="blog.html">Blog</a>
-        <a href="projects.html">Projects</a>
-        <a href="about.html">About</a>
-        <a href="feed.xml" class="nav-rss" title="RSS Feed">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 11a9 9 0 0 1 9 9"></path>
-            <path d="M4 4a16 16 0 0 1 16 16"></path>
-            <circle cx="5" cy="19" r="1"></circle>
+    <div class="container site-header__inner">
+
+      <a href="/" class="site-logo">Geekery <em>Rose</em></a>
+
+      <nav aria-label="Main navigation" class="site-nav">
+        <a href="/blog.html"     class="site-nav__link">Blog</a>
+        <a href="/projects.html" class="site-nav__link">Projects</a>
+        <a href="/about.html"    class="site-nav__link">About</a>
+        <a href="/posts/sample-post.html" class="site-nav__link">Sample Post</a>
+        <a href="/feed.xml" class="nav-rss" aria-label="RSS feed">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M2 2a1 1 0 0 0 0 2 9 9 0 0 1 9 9 1 1 0 0 0 2 0A11 11 0 0 0 2 2zm0 4a1 1 0 0 0 0 2 5 5 0 0 1 5 5 1 1 0 0 0 2 0A7 7 0 0 0 2 6zm0 4a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
           </svg>
-          RSS
         </a>
       </nav>
+
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        ☾ Dark
+      </button>
+
     </div>
   </header>
 
   <!-- Main Content -->
-  <main class="container">
+  <main id="main" class="container">
     <!-- Hero Section -->
     <section>
       <h1>Welcome to Geekery Rose</h1>
       <p>
-        Follow along with my creative journey. 
+        Follow along with my creative journey.
       </p>
     </section>
 
     <!-- Placeholder Content -->
-    <section>
+    <div>
       <p>
         This blog is under construction! Check back soon for posts about:
       </p>
@@ -53,18 +60,16 @@
         <li>Creative experiments</li>
         <li>Making and learning</li>
       </ul>
-
-    </section>
+    </div>
   </main>
 
   <!-- Site Footer -->
   <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 Geekery Rose.</p>
-      <p>
-        <a href="https://github.com/jordana33/geekery-rose">View source on GitHub</a>
-      </p>
+    <div class="container site-footer__inner">
+      <p>Geekery Rose &copy; 2026 &mdash; Made with yarn, stitches, and native web components</p>
+      <a href="https://github.com/jordana33/geekery-rose" class="site-footer__source">View source on GitHub</a>
     </div>
   </footer>
+  <script src="/js/theme-toggle.js"></script>
 </body>
 </html>
