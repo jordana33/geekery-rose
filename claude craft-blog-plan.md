@@ -51,51 +51,51 @@ Then open the Codespaces forwarded URL in the browser. The URL format is:
 
 ```
 geekery-rose/
-Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ index.html                 # Homepage
-Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ blog.html                  # Chronological post list
-Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ projects.html              # All projects overview
-Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ about.html                 # About page
-Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ styles/
-Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ base.css              # Reset, typography, base styles
-Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ themes.css            # Theme custom properties
-Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ components.css        # Shared component styles
-Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ components/
-Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ blog-post.js          # Post display component
-Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ post-card.js          # Post preview card
-Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ project-header.js     # Project landing page header
-Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ image-lightbox.js     # Full-size image viewer
-Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ tag-filter.js         # Filter posts by craft type
-Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ post-list.js          # Paginated post listing
-Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ rss-feed.js           # RSS feed link component
-â”‚   â””â”€â”€ comment-thread.js     # Comment display (future)
-Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ posts/
-Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ 2024-12-01-cozy-cardigan-part-1.html
-Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ 2024-12-15-cozy-cardigan-part-2.html
-Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ 2025-01-05-cozy-cardigan-finished.html
-Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ 2024-11-20-embroidered-tote.html
-Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ projects/
-Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ cozy-cardigan/
-Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ index.html        # Project landing page
-Ã¢â€â€š   Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ project.json      # Project metadata
-Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ embroidered-tote/
-Ã¢â€â€š       Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ index.html
-Ã¢â€â€š       Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ project.json
-Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ images/
-Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ posts/
-Ã¢â€â€š   Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ 2024-12-01/       # Images for specific post
-Ã¢â€â€š   Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ 2024-12-15/
-Ã¢â€â€š   Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ projects/
-Ã¢â€â€š       Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ cozy-cardigan/    # Project hero images
-Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ data/
-Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ posts.json            # Generated post index
-Ã¢â€â€š   Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ projects.json         # Generated project index
-â”‚   â”œâ”€â”€ tags.json             # Generated tag index
-â”‚   â””â”€â”€ comments/             # Exported comments (future)
-â”‚       â””â”€â”€ post-slug.json    # Comments per post
-Ã¢â€Å“Ã¢â€â‚¬Ã¢â€â‚¬ feed.xml                  # Generated RSS feed
-Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬ scripts/
-    â”œâ”€â”€ build.js              # Build script to generate indexes/RSS
-    â””â”€â”€ export-comments.js    # Export comments from GitHub (future)
+├── index.html                 # Homepage
+├── blog.html                  # Chronological post list
+├── projects.html              # All projects overview
+├── about.html                 # About page
+├── styles/
+│   ├── base.css              # Reset, typography, base styles
+│   ├── themes.css            # Theme custom properties
+│   └── components.css        # Shared component styles
+├── components/
+│   ├── blog-post.js          # Post display component
+│   ├── post-card.js          # Post preview card
+│   ├── project-header.js     # Project landing page header
+│   ├── image-lightbox.js     # Full-size image viewer
+│   ├── tag-filter.js         # Filter posts by craft type
+│   ├── post-list.js          # Paginated post listing
+│   ├── rss-feed.js           # RSS feed link component
+│   └── comment-thread.js     # Comment display (future)
+├── posts/
+│   ├── 2024-12-01-cozy-cardigan-part-1.html
+│   ├── 2024-12-15-cozy-cardigan-part-2.html
+│   ├── 2025-01-05-cozy-cardigan-finished.html
+│   └── 2024-11-20-embroidered-tote.html
+├── projects/
+│   ├── cozy-cardigan/
+│   │   ├── index.html        # Project landing page
+│   │   └── project.json      # Project metadata
+│   └── embroidered-tote/
+│       ├── index.html
+│       └── project.json
+├── images/
+│   ├── posts/
+│   │   ├── 2024-12-01/       # Images for specific post
+│   │   └── 2024-12-15/
+│   └── projects/
+│       └── cozy-cardigan/    # Project hero images
+├── data/
+│   ├── posts.json            # Generated post index
+│   ├── projects.json         # Generated project index
+│   ├── tags.json             # Generated tag index
+│   └── comments/             # Exported comments (future)
+│       └── post-slug.json    # Comments per post
+├── feed.xml                  # Generated RSS feed
+└── scripts/
+    ├── build.js              # Build script to generate indexes/RSS
+    └── export-comments.js    # Export comments from GitHub (future)
 ```
 
 ---
@@ -121,16 +121,16 @@ Posts are HTML files with metadata in `<meta>` tags:
   <meta property="post:project-sequence" content="1">
   <meta property="post:craft-types" content="crochet,knitting">
   <meta property="post:summary" content="Starting my first cardigan project">
-  <meta property="post:featured-image" content="/images/posts/2024-12-01/hero.jpg">
+  <meta property="post:featured-image" content="../images/posts/2024-12-01/hero.jpg">
   
   <!-- Post update changelog: add one tag per update, oldest first -->
   <!-- Format: YYYY-MM-DD|Human readable description of what changed -->
   <!-- <meta property="post:update" content="2025-03-15|Added Bluesky and Mastodon accounts"> -->
   <!-- <meta property="post:update" content="2025-06-01|Removed Twitter, updated Tumblr link"> -->
   
-  <link rel="stylesheet" href="/styles/base.css">
-  <link rel="stylesheet" href="/styles/themes.css">
-  <script type="module" src="/components/image-lightbox.js"></script>
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/themes.css">
+  <script type="module" src="../components/image-lightbox.js"></script>
 </head>
 <body>
   <article class="blog-post">
@@ -143,7 +143,7 @@ Posts are HTML files with metadata in `<meta>` tags:
       <h2>Materials</h2>
       <p>Content here in HTML...</p>
       
-      <img src="/images/posts/2024-12-01/yarn.jpg" 
+      <img src="../images/posts/2024-12-01/yarn.jpg" 
            alt="Yarn choices" 
            data-lightbox="true">
     </section>
@@ -178,7 +178,7 @@ Posts are HTML files with metadata in `<meta>` tags:
   "craft-types": ["crochet", "knitting"],
   "start-date": "2024-12-01",
   "status": "in-progress",
-  "hero-image": "/images/projects/cozy-cardigan/hero.jpg",
+  "hero-image": "images/projects/cozy-cardigan/hero.jpg",
   "posts": [
     {
       "slug": "cozy-cardigan-part-1",
@@ -207,7 +207,7 @@ Posts are HTML files with metadata in `<meta>` tags:
       "project-sequence": 1,
       "craft-types": ["crochet", "knitting"],
       "summary": "Starting my first cardigan project...",
-      "featured-image": "/images/posts/2024-12-01/hero.jpg"
+      "featured-image": "images/posts/2024-12-01/hero.jpg"
     }
   ]
 }
@@ -221,11 +221,11 @@ Posts are HTML files with metadata in `<meta>` tags:
 **Purpose:** Loads and displays a complete HTML blog post
 
 **Attributes:**
-- `slug` - Post identifier (loads `/posts/{slug}.html`)
+- `slug` - Post identifier (loads `posts/{slug}.html`)
 - `data-layout` - Optional layout override (default, wide, custom)
 
 **Features:**
-- Fetches HTML file from `/posts/` directory
+- Fetches HTML file from `posts/` directory
 - Extracts and displays metadata from meta tags
 - Initializes any web components within the post content
 - Shows project breadcrumb if part of a project
@@ -275,8 +275,8 @@ Component fetches the HTML file and can either:
   title="Cozy Cardigan - Part 1"
   date="2024-12-01"
   summary="Starting my first cardigan..."
-  image="/images/posts/2024-12-01/hero.jpg"
-  href="/posts/cozy-cardigan-part-1.html"
+  image="images/posts/2024-12-01/hero.jpg"
+  href="posts/cozy-cardigan-part-1.html"
   craft-types="crochet,knitting">
 </post-card>
 ```
@@ -364,7 +364,7 @@ Component fetches the HTML file and can either:
 
 ```html
 <post-list 
-  source="/data/posts.json"
+  source="data/posts.json"
   filter-tags="crochet"
   sort="date-desc">
 </post-list>
@@ -449,6 +449,9 @@ Generate static JSON indexes and RSS feed by scanning HTML post files.
 import fs from 'fs';
 import path from 'path';
 
+// Base URL for absolute links in the RSS feed — the only place to change when a custom domain is set up
+const SITE_URL = 'https://jordana33.github.io/geekery-rose/';
+
 // Read all HTML files from /posts
 const postsDir = './posts';
 const files = fs.readdirSync(postsDir).filter(f => f.endsWith('.html'));
@@ -469,7 +472,8 @@ const posts = files.map(filename => {
     project: getMeta('project'),
     craftTypes: getMeta('craft-types')?.split(',') || [],
     summary: getMeta('summary'),
-    featuredImage: getMeta('featured-image'),
+    // Posts live in posts/, so their paths start with ../ — strip it for root-relative use in JSON
+    featuredImage: getMeta('featured-image')?.replace(/^\.\.\//, ''),
     // Extract all post:update tags (there may be multiple)
     updates: [...content.matchAll(/<meta property="post:update" content="([^"]+)"/g)]
       .map(m => {
@@ -501,10 +505,10 @@ fs.writeFileSync('./data/tags.json', JSON.stringify({ tags }, null, 2));
 const rssItems = posts.map(post => `
   <item>
     <title>${post.title}</title>
-    <link>https://username.github.io/posts/${post.slug}.html</link>
+    <link>${SITE_URL}posts/${post.slug}.html</link>
     <description>${post.summary}</description>
     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-    <guid>https://username.github.io/posts/${post.slug}.html</guid>
+    <guid>${SITE_URL}posts/${post.slug}.html</guid>
     ${post.craftTypes.map(tag => `<category>${tag}</category>`).join('\n    ')}
   </item>
 `).join('');
@@ -513,7 +517,7 @@ const rssFeed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
     <title>My Geekery Rose</title>
-    <link>https://username.github.io/</link>
+    <link>${SITE_URL}</link>
     <description>Creative hobby projects</description>
     ${rssItems}
   </channel>
@@ -638,20 +642,20 @@ Structure data to support client-side search later:
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>My Geekery Rose</title>
-    <link>https://username.github.io/geekery-rose/</link>
+    <link>https://jordana33.github.io/geekery-rose/</link>
     <description>Documenting my creative hobby projects</description>
-    <atom:link href="https://username.github.io/geekery-rose/feed.xml" 
+    <atom:link href="https://jordana33.github.io/geekery-rose/feed.xml" 
                rel="self" type="application/rss+xml" />
     
     <item>
       <title>Cozy Cardigan - Part 1: Planning &amp; Swatching</title>
-      <link>https://username.github.io/geekery-rose/posts/cozy-cardigan-part-1.html</link>
+      <link>https://jordana33.github.io/geekery-rose/posts/cozy-cardigan-part-1.html</link>
       <description>Starting my first cardigan project...</description>
       <pubDate>Fri, 01 Dec 2024 00:00:00 GMT</pubDate>
-      <guid>https://username.github.io/geekery-rose/posts/cozy-cardigan-part-1.html</guid>
+      <guid>https://jordana33.github.io/geekery-rose/posts/cozy-cardigan-part-1.html</guid>
       <category>crochet</category>
       <category>knitting</category>
-      <enclosure url="https://username.github.io/geekery-rose/images/posts/2024-12-01/hero.jpg" 
+      <enclosure url="https://jordana33.github.io/geekery-rose/images/posts/2024-12-01/hero.jpg" 
                  type="image/jpeg" />
     </item>
     
@@ -664,10 +668,10 @@ Structure data to support client-side search later:
 ```html
 <!-- In site header -->
 <link rel="alternate" type="application/rss+xml" 
-      title="My Geekery Rose" href="/feed.xml">
+      title="My Geekery Rose" href="feed.xml">
 
 <!-- Visual RSS link -->
-<a href="/feed.xml" class="rss-link">
+<a href="feed.xml" class="rss-link">
   <svg><!-- RSS icon --></svg>
   Subscribe via RSS
 </a>
@@ -684,13 +688,13 @@ When ready to add comments, the blog will use [Giscus](https://giscus.app/), whi
 
 ### Why Giscus?
 
-Ã¢Å“â€¦ **Zero maintenance** - GitHub handles all the backend infrastructure  
-Ã¢Å“â€¦ **Data ownership** - Comments stored in your GitHub repository  
-Ã¢Å“â€¦ **Free forever** - No hosting costs or service fees  
-Ã¢Å“â€¦ **Privacy-respecting** - No tracking or advertisements  
-Ã¢Å“â€¦ **Markdown support** - Perfect for technical/craft discussions  
-Ã¢Å“â€¦ **Easy removal** - Just remove a `<script>` tag if you change your mind  
-Ã¢Å“â€¦ **Exportable** - Full access via GitHub GraphQL API  
+✅ **Zero maintenance** - GitHub handles all the backend infrastructure  
+✅ **Data ownership** - Comments stored in your GitHub repository  
+✅ **Free forever** - No hosting costs or service fees  
+✅ **Privacy-respecting** - No tracking or advertisements  
+✅ **Markdown support** - Perfect for technical/craft discussions  
+✅ **Easy removal** - Just remove a `<script>` tag if you change your mind  
+✅ **Exportable** - Full access via GitHub GraphQL API  
 
 ### Implementation Steps (When Ready)
 
@@ -844,7 +848,7 @@ class CommentThread extends HTMLElement {
   
   async loadComments(slug) {
     try {
-      const response = await fetch(`/data/comments/${slug}.json`);
+      const response = await fetch(`../data/comments/${slug}.json`);
       const { comments } = await response.json();
       this.renderComments(comments);
     } catch (error) {
@@ -955,7 +959,7 @@ This approach gives you all the benefits of a hosted solution while maintaining 
 - Requires backend server ($10/month)
 - Against zero-dependency philosophy
 
-**Static Forms â†’ Email**
+**Static Forms → Email**
 - Use Formspree/Netlify Forms to collect comments via email
 - Manually approve and add to HTML
 - Very low engagement, high friction for commenters
@@ -971,11 +975,11 @@ GitHub Actions can automate the build process, eliminating the need to manually 
 ### Why Automate the Build?
 
 **Benefits:**
-- âœ… Never forget to run the build script
-- âœ… Edit from GitHub.dev (web editor) without terminal access
-- âœ… Simplify iPad/mobile workflow
-- âœ… Automatic on every push
-- âœ… No local Node.js required
+- ✅ Never forget to run the build script
+- ✅ Edit from GitHub.dev (web editor) without terminal access
+- ✅ Simplify iPad/mobile workflow
+- ✅ Automatic on every push
+- ✅ No local Node.js required
 
 **Tradeoffs:**
 - Adds ~30 second delay after pushing (for Action to run)
@@ -1052,7 +1056,7 @@ jobs:
 2. Export to HTML
 3. Add template structure and metadata
 4. Commit and push (via git, Working Copy, or GitHub.dev)
-5. âœ¨ Build happens automatically!
+5. ✨ Build happens automatically!
 6. Wait ~1 minute, site is updated
 ```
 
@@ -1077,14 +1081,14 @@ jobs:
    ```
 
 3. **Verify it works:**
-   - Go to your repository â†’ "Actions" tab
+   - Go to your repository → "Actions" tab
    - You should see a workflow run
    - Check that data files were updated
 
 ### Troubleshooting
 
 **Action fails with "permission denied":**
-- Go to Settings â†’ Actions â†’ General
+- Go to Settings → Actions → General
 - Under "Workflow permissions", select "Read and write permissions"
 - Save
 
@@ -1121,6 +1125,11 @@ The choice is yours:
 ## Implementation Phases
 
 ### Phase 1: Foundation (Week 1-2) #next-action 
+- [x] Clean up plan file inconsistencies
+  - [x] Replace root-relative paths in post template snippets with relative paths (lines ~124-146 and ~1259-1317, use `../` since posts live in `posts/`)
+  - [x] Replace root-relative paths in component, RSS, and comment-thread snippets (`<blog-post>`, `<post-card>`, `<post-list>`, RSS link, `comment-thread` fetch)
+  - [x] Replace `python -m http.server` in the example post workflow with `npx serve . -p 8080` and the Codespaces URL
+  - [x] Fix garbled characters (file tree and checkmarks, likely an encoding issue)
 - [x] Set up GitHub Pages repository
 - [x] Create base HTML structure
 - [x] Implement CSS custom properties system
@@ -1256,10 +1265,10 @@ The choice is yours:
      <meta property="post:date" content="2024-12-11">
      <meta property="post:craft-types" content="embroidery">
      <meta property="post:summary" content="Hand-embroidered wildflower design on linen">
-     <meta property="post:featured-image" content="/images/posts/2024-12-11/hero.jpg">
+     <meta property="post:featured-image" content="../images/posts/2024-12-11/hero.jpg">
      
-     <link rel="stylesheet" href="/styles/base.css">
-     <link rel="stylesheet" href="/styles/themes.css">
+     <link rel="stylesheet" href="../styles/base.css">
+     <link rel="stylesheet" href="../styles/themes.css">
    </head>
    <body>
      <!-- Exported markdown content here -->
@@ -1270,7 +1279,7 @@ The choice is yours:
 4. **Enhance with web components** (optional):
    ```html
    <!-- Replace a regular image with lightbox functionality -->
-   <img src="/images/posts/2024-12-11/fabric.jpg" 
+   <img src="../images/posts/2024-12-11/fabric.jpg" 
         alt="Fabric laid out" 
         data-lightbox="true">
    ```
@@ -1290,8 +1299,8 @@ The choice is yours:
 
 8. **Preview locally**:
    ```bash
-   python -m http.server 8000
-   # Visit http://localhost:8000/posts/2024-12-11-embroidered-pillowcase.html
+   npx serve . -p 8080
+   # Visit https://<codespace-name>-8080.app.github.dev/posts/2024-12-11-embroidered-pillowcase.html
    ```
 
 9. **Deploy**:
@@ -1314,7 +1323,7 @@ Use this template for consistent metadata across posts:
 <meta property="post:date" content="YYYY-MM-DD">
 <meta property="post:craft-types" content="tag1,tag2,tag3">
 <meta property="post:summary" content="Brief description for previews">
-<meta property="post:featured-image" content="/images/posts/YYYY-MM-DD/hero.jpg">
+<meta property="post:featured-image" content="../images/posts/YYYY-MM-DD/hero.jpg">
 
 <!-- Optional: add one tag per update, oldest first -->
 <!-- Format: YYYY-MM-DD|Human-readable description of what changed -->
@@ -1507,12 +1516,12 @@ npx live-server
 6. Build script extracts metadata from HTML files (no parsing dependencies)
 
 ### Why This Approach:
-Ã¢Å“â€¦ **Zero dependencies** - Build script uses only Node.js built-ins
-Ã¢Å“â€¦ **Pleasant authoring** - Markdown writing experience via editors
-Ã¢Å“â€¦ **Full control** - Direct HTML editing when needed
-Ã¢Å“â€¦ **Performance** - HTML served directly
-Ã¢Å“â€¦ **Flexibility** - Can add web components anywhere
-Ã¢Å“â€¦ **Simple build** - Just metadata extraction, no conversion
+✅ **Zero dependencies** - Build script uses only Node.js built-ins
+✅ **Pleasant authoring** - Markdown writing experience via editors
+✅ **Full control** - Direct HTML editing when needed
+✅ **Performance** - HTML served directly
+✅ **Flexibility** - Can add web components anywhere
+✅ **Simple build** - Just metadata extraction, no conversion
 
 ### Alternative Approaches (Not Chosen):
 

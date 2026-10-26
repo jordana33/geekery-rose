@@ -6,7 +6,7 @@
 - Always use relative paths: `js/foo.js` from the root, `../js/foo.js` from `posts/`, `../../js/foo.js` from deeper nesting.
 
 ## Working preferences
-- Do NOT jump ahead and make additional anticipated changes.
+- Do NOT jump ahead and make additional anticipated changes. Always check before making a change.
 - Work in discrete steps.
 
 ## Local dev server
